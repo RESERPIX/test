@@ -72,7 +72,7 @@ export const ShareJamModal: React.FC<ShareJamModalProps> = ({
               <input type="text" readOnly value={currentUrl} className="bg-transparent border-none text-xs font-mono text-textSecondary w-full outline-none px-2 select-all" />
               <button 
                 onClick={() => handleCopyLink(currentUrl)} 
-                className="bg-surface-2 hover:bg-surface-3 border border-borderDef text-textPrimary p-2.5 rounded-lg shrink-0 cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors" 
+                className="bg-surface-2 hover:bg-surface-3 border border-borderDef text-textPrimary p-2.5 rounded-lg shrink-0 cursor-pointer min-w-[44px] min-h-11 flex items-center justify-center transition-colors" 
                 title="Скопировать ссылку"
               >
                 {isCopiedRecently ? <Check className="w-4 h-4 text-success" /> : <Copy className="w-4 h-4" />}

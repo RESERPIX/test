@@ -1690,7 +1690,7 @@ export default function App({ initialProfileType, authState, setAuthState }: { i
                 ) : (
                   isEditingMode && (
                     <div className="flex items-center gap-2 mt-0.5">
-                      <span className="text-[12px] font-sans text-textTertiary italic">
+                      <span className="text-caption font-sans text-textTertiary italic">
                         Отображаемое имя не задано (используется @username)
                       </span>
                       <button
@@ -2705,7 +2705,7 @@ export default function App({ initialProfileType, authState, setAuthState }: { i
                         <div className="font-semibold text-textPrimary">
                           Смена никнейма временно заморожена
                         </div>
-                        <div className="text-textSecondary text-[12px] leading-relaxed">
+                        <div className="text-textSecondary text-caption leading-relaxed">
                           По правилам платформы никнейм можно менять не чаще одного раза в 30 дней. Следующая смена станет доступна <strong className="text-textPrimary">{cooldownAvailableDateFormatted}</strong> (через {cooldownDaysRemaining} дн.).
                         </div>
                         {/* Демо-симуляция */}

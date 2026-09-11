@@ -250,7 +250,7 @@ export default function DevMatrixPanel({ pageName, fields, bottomOffsetClass = "
                               key={opt.value}
                               type="button"
                               onClick={() => field.onChange(opt.value)}
-                              className={`min-h-[38px] px-3 py-1.5 rounded-md font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-all touch-manipulation active:scale-95 ${
+                              className={`min-h-10 px-3 py-1.5 rounded-md font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-all touch-manipulation active:scale-95 ${
                                 isSelected
                                   ? 'bg-accent text-white font-bold shadow-sm'
                                   : 'text-textTertiary hover:text-textPrimary bg-transparent'
@@ -272,7 +272,7 @@ export default function DevMatrixPanel({ pageName, fields, bottomOffsetClass = "
                 <button
                   type="button"
                   onClick={() => setIsMobileSheetOpen(false)}
-                  className="w-full min-h-[44px] bg-accent hover:bg-accent-hover active:scale-98 text-white font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 touch-manipulation"
+                  className="w-full min-h-11 bg-accent hover:bg-accent-hover active:scale-98 text-white font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 touch-manipulation"
                 >
                   <span>Применить и закрыть</span>
                 </button>

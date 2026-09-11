@@ -58,7 +58,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
     sm: 'min-h-[32px] h-8 text-xs px-2.5 rounded-control',
     md: 'min-h-[36px] h-9 text-xs px-3 rounded-control',
     lg: 'min-h-[40px] h-10 text-xs sm:text-sm px-3.5 rounded-control',
-    xl: 'min-h-[44px] h-11 text-sm px-4 rounded-control'
+    xl: 'min-h-11 h-11 text-sm px-4 rounded-control'
   };
 
   const updateCoords = useCallback(() => {

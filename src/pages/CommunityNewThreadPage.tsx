@@ -628,7 +628,7 @@ export default function CommunityNewThreadPage({
             <Button 
               variant="primary" 
               onClick={handlePublish} 
-              className="h-10 px-5 font-bold flex items-center gap-2 rounded-xl text-[14px] shadow-accent/20 shadow-lg"
+              className="h-10 px-5 font-bold flex items-center gap-2 rounded-xl text-body-sm shadow-accent/20 shadow-lg"
             >
               {isEditing ? (
                 <>Сохранить изменения <Check className="w-4 h-4 ml-0.5" /></>
@@ -685,7 +685,7 @@ export default function CommunityNewThreadPage({
               <div className="space-y-6">
                 {/* Roles */}
                 <div>
-                  <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-3">
+                  <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-3">
                     Искомые роли * (можно выбрать несколько)
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -712,7 +712,7 @@ export default function CommunityNewThreadPage({
                 {/* Participation Format & Experience */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-2">
+                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-2">
                       Формат участия *
                     </label>
                     <div className="relative">
@@ -728,7 +728,7 @@ export default function CommunityNewThreadPage({
                   </div>
 
                   <div>
-                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-2">
+                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-2">
                       Опыт / Уровень кандидата
                     </label>
                     <div className="relative">
@@ -750,7 +750,7 @@ export default function CommunityNewThreadPage({
                 {/* Engine & Summary */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-2">
+                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-2">
                       Движок проекта (Опционально)
                     </label>
                     <div className="relative">
@@ -767,7 +767,7 @@ export default function CommunityNewThreadPage({
                   </div>
 
                   <div>
-                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-2">
+                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-2">
                       Требуемые навыки (Стек)
                     </label>
                     <div className="flex gap-2">
@@ -835,7 +835,7 @@ export default function CommunityNewThreadPage({
 
                 {/* Pitch summary */}
                 <div>
-                  <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-2">
+                  <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-2">
                     Краткое резюме поиска * (1-2 предложения)
                   </label>
                   <input 
@@ -866,7 +866,7 @@ export default function CommunityNewThreadPage({
               
               <div className="space-y-6">
                 <div>
-                  <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-3">
+                  <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-3">
                     Направления фидбека * (минимум одно)
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
@@ -893,7 +893,7 @@ export default function CommunityNewThreadPage({
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-2">
+                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-2">
                       Платформы проверки
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -918,7 +918,7 @@ export default function CommunityNewThreadPage({
                   </div>
 
                   <div>
-                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-2">
+                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-2">
                       Ориентировочное время теста
                     </label>
                     <div className="relative">
@@ -936,7 +936,7 @@ export default function CommunityNewThreadPage({
 
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest">
+                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest">
                       Целевые вопросы к игрокам (до 5 вопросов)
                     </label>
                     {questions.length < 5 && (

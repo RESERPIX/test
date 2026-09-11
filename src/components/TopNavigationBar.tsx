@@ -981,7 +981,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                   <button
                     type="button"
                     onClick={() => { setCurrentPath('/about'); setIsMobileSecondaryMenuOpen(false); }}
-                    className="w-full min-h-[44px] px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
+                    className="w-full min-h-11 px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
                   >
                     <div className="flex items-center gap-3">
                       <Sparkles className="w-4 h-4 text-accent" />
@@ -993,7 +993,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                   <button
                     type="button"
                     onClick={() => { setCurrentPath('/how-to-participate'); setIsMobileSecondaryMenuOpen(false); }}
-                    className="w-full min-h-[44px] px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
+                    className="w-full min-h-11 px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
                   >
                     <div className="flex items-center gap-3">
                       <HelpCircle className="w-4 h-4 text-accent" />
@@ -1005,7 +1005,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                   <button
                     type="button"
                     onClick={() => { setCurrentPath('/support'); setIsMobileSecondaryMenuOpen(false); }}
-                    className="w-full min-h-[44px] px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
+                    className="w-full min-h-11 px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
                   >
                     <div className="flex items-center gap-3">
                       <MessageSquare className="w-4 h-4 text-accent" />
@@ -1017,7 +1017,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                   <button
                     type="button"
                     onClick={() => { setCurrentPath('/assets-market'); setIsMobileSecondaryMenuOpen(false); }}
-                    className="w-full min-h-[44px] px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
+                    className="w-full min-h-11 px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
                   >
                     <div className="flex items-center gap-3">
                       <ShoppingBag className="w-4 h-4 text-textTertiary" />
@@ -1037,7 +1037,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                   <button
                     type="button"
                     onClick={() => setTheme('light')}
-                    className={`min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all touch-manipulation active:scale-95 ${
+                    className={`min-h-10 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all touch-manipulation active:scale-95 ${
                       theme === 'light'
                         ? 'bg-surface-1 text-accent font-bold shadow-sm'
                         : 'text-textTertiary hover:text-textPrimary'
@@ -1049,7 +1049,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                   <button
                     type="button"
                     onClick={() => setTheme('dark')}
-                    className={`min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all touch-manipulation active:scale-95 ${
+                    className={`min-h-10 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all touch-manipulation active:scale-95 ${
                       theme === 'dark'
                         ? 'bg-surface-1 text-accent font-bold shadow-sm'
                         : 'text-textTertiary hover:text-textPrimary'
@@ -1061,7 +1061,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                   <button
                     type="button"
                     onClick={() => setTheme('system')}
-                    className={`min-h-[38px] px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all touch-manipulation active:scale-95 ${
+                    className={`min-h-10 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all touch-manipulation active:scale-95 ${
                       theme === 'system'
                         ? 'bg-surface-1 text-accent font-bold shadow-sm'
                         : 'text-textTertiary hover:text-textPrimary'
@@ -1082,7 +1082,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                       setIsMobileSecondaryMenuOpen(false);
                       openAuthModal('LOGIN');
                     }}
-                    className="w-full min-h-[44px] bg-surface-2 hover:bg-surface-3 active:scale-98 text-textPrimary font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 border border-borderDef touch-manipulation"
+                    className="w-full min-h-11 bg-surface-2 hover:bg-surface-3 active:scale-98 text-textPrimary font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 border border-borderDef touch-manipulation"
                   >
                     <LogIn className="w-4 h-4 text-accent" />
                     <span>Войти в аккаунт</span>
@@ -1093,7 +1093,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                       setIsMobileSecondaryMenuOpen(false);
                       openAuthModal('REGISTER');
                     }}
-                    className="w-full min-h-[44px] bg-accent hover:bg-accent-hover active:scale-98 text-white font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 touch-manipulation"
+                    className="w-full min-h-11 bg-accent hover:bg-accent-hover active:scale-98 text-white font-bold text-sm rounded-xl transition-all flex items-center justify-center gap-2 touch-manipulation"
                   >
                     <span>Зарегистрироваться</span>
                   </button>
@@ -1116,7 +1116,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                     <button
                       type="button"
                       onClick={() => { setCurrentPath('/creator-dashboard'); setIsMobileSecondaryMenuOpen(false); }}
-                      className="w-full min-h-[44px] px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
+                      className="w-full min-h-11 px-3.5 py-2.5 text-left flex items-center justify-between text-textPrimary hover:bg-surface-3 active:bg-surface-3 transition-colors touch-manipulation"
                     >
                       <div className="flex items-center gap-3">
                         <LayoutDashboard className="w-4 h-4 text-accent" />
@@ -1129,7 +1129,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                       <button
                         type="button"
                         onClick={() => { setCurrentPath('/admin/users'); setIsMobileSecondaryMenuOpen(false); }}
-                        className="w-full min-h-[44px] px-3.5 py-2.5 text-left flex items-center justify-between text-danger hover:bg-danger/10 active:bg-danger/10 transition-colors touch-manipulation"
+                        className="w-full min-h-11 px-3.5 py-2.5 text-left flex items-center justify-between text-danger hover:bg-danger/10 active:bg-danger/10 transition-colors touch-manipulation"
                       >
                         <div className="flex items-center gap-3">
                           <Shield className="w-4 h-4" />
@@ -1144,7 +1144,7 @@ export default function App({ currentPath: externalPath, onNavigate }: { current
                     <button
                       type="button"
                       onClick={() => { handleLogout(); setIsMobileSecondaryMenuOpen(false); }}
-                      className="w-full min-h-[44px] px-3.5 py-2.5 text-left flex items-center gap-3 text-danger hover:bg-danger/10 active:bg-danger/10 transition-colors touch-manipulation font-semibold"
+                      className="w-full min-h-11 px-3.5 py-2.5 text-left flex items-center gap-3 text-danger hover:bg-danger/10 active:bg-danger/10 transition-colors touch-manipulation font-semibold"
                     >
                       <LogOut className="w-4 h-4" />
                       <span className="text-sm">Выйти из аккаунта</span>

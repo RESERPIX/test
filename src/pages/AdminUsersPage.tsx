@@ -502,26 +502,26 @@ export default function AdminUsersPage() {
   const getStateBadge = (state: UserAccountState) => {
     switch (state) {
       case 'active':
-        return <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-success/15 text-success border border-success/30">Активен</span>;
+        return <Badge variant="success" size="sm">Активен</Badge>;
       case 'suspended':
-        return <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-warning/15 text-warning border border-warning/30">Приостановлен</span>;
+        return <Badge variant="warning" size="sm">Приостановлен</Badge>;
       case 'banned':
-        return <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-danger/15 text-danger border border-danger/30">Заблокирован</span>;
+        return <Badge variant="danger" size="sm">Заблокирован</Badge>;
       case 'pending_deletion':
-        return <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-info/15 text-info border border-info/30">Ожидает удаления</span>;
+        return <Badge variant="info" size="sm">Ожидает удаления</Badge>;
     }
   };
 
   const getRoleBadge = (role: StaffRole) => {
     switch (role) {
       case 'super_admin':
-        return <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-accent/20 text-accent border border-accent/40">SuperAdmin</span>;
+        return <Badge variant="accent" size="sm">SuperAdmin</Badge>;
       case 'admin':
-        return <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30">Admin</span>;
+        return <Badge className="bg-purple-500/10 text-purple-500 border-purple-500/30" size="sm">Admin</Badge>;
       case 'moderator':
-        return <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">Moderator</span>;
+        return <Badge className="bg-blue-500/10 text-blue-500 border-blue-500/30" size="sm">Moderator</Badge>;
       case 'user':
-        return <span className="px-2 py-0.5 rounded text-[11px] font-mono text-textTertiary bg-surface-2 border border-borderDef">User</span>;
+        return <Badge variant="neutral" size="sm">User</Badge>;
     }
   };
 
@@ -548,7 +548,7 @@ export default function AdminUsersPage() {
           </div>
 
           <div className="flex items-center gap-3 bg-surface-1 p-2 rounded-xl border border-borderDef">
-            <span className="text-[11px] font-mono font-bold text-textTertiary uppercase px-2">Ваша роль:</span>
+            <span className="text-overline font-mono font-bold text-textTertiary uppercase px-2">Ваша роль:</span>
             <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-accent/20 text-accent border border-accent/40">
               {currentStaffRole === 'super_admin' ? 'Super Admin' : currentStaffRole === 'admin' ? 'Admin' : 'Moderator'}
             </span>
@@ -610,7 +610,7 @@ export default function AdminUsersPage() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] font-mono text-textTertiary pt-1">
+              <div className="flex items-center justify-between text-overline font-mono text-textTertiary pt-1">
                 <span>Найдено записей: <strong className="text-textPrimary">{filteredUsers.length}</strong></span>
                 <span>Нажмите на строку для открытия операционной карточки</span>
               </div>
@@ -659,7 +659,7 @@ export default function AdminUsersPage() {
                                 <div className="min-w-0">
                                   <div className="font-bold text-textPrimary flex items-center gap-1.5 truncate">
                                     <span>{user.displayName}</span>
-                                    <span className="text-textTertiary text-[11px] font-mono">@{user.username}</span>
+                                    <span className="text-textTertiary text-overline font-mono">@{user.username}</span>
                                   </div>
                                   <div className="text-textTertiary font-mono text-[10px] truncate">{user.email}</div>
                                 </div>
@@ -678,7 +678,7 @@ export default function AdminUsersPage() {
 
                             {/* Индикаторы безопасности */}
                             <td className="py-3.5 px-3">
-                              <div className="flex items-center gap-1.5 font-mono text-[11px]">
+                              <div className="flex items-center gap-1.5 font-mono text-overline">
                                 {user.isEmailVerified && (
                                   <span title="Email подтвержден" className="text-success flex items-center">
                                     <Mail className="w-3.5 h-3.5" />
@@ -699,7 +699,7 @@ export default function AdminUsersPage() {
 
                             {/* Связи */}
                             <td className="py-3.5 px-3">
-                              <div className="flex items-center gap-2 text-[11px] text-textSecondary font-mono">
+                              <div className="flex items-center gap-2 text-overline text-textSecondary font-mono">
                                 {user.teams.length > 0 && (
                                   <span title={`Команд: ${user.teams.length}`} className="flex items-center gap-0.5">
                                     <Users className="w-3.5 h-3.5 text-textTertiary" /> {user.teams.length}
@@ -777,11 +777,11 @@ export default function AdminUsersPage() {
 
               {/* 🛡️ PRIVACY GUARD (КРИТИЧЕСКИЙ ИНВАРИАНТ БЕЗОПАСНОСТИ РАЗДЕЛА 14) */}
               <div className="p-3 bg-accent/5 border border-accent/20 rounded-xl text-xs space-y-1">
-                <div className="flex items-center gap-2 text-accent font-bold text-[11px] uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-accent font-bold text-overline uppercase tracking-wider">
                   <ShieldCheck className="w-4 h-4 shrink-0" />
                   <span>Privacy Guard (Протокол защиты секретов)</span>
                 </div>
-                <p className="text-[11px] text-textSecondary leading-relaxed">
+                <p className="text-overline text-textSecondary leading-relaxed">
                   Хеши паролей, 2FA-секреты, сессионные токены и полные платёжные реквизиты никогда не передаются в DTO оператора.
                 </p>
               </div>
@@ -792,13 +792,13 @@ export default function AdminUsersPage() {
                   <span className="text-[10px] font-mono uppercase text-textTertiary font-bold block">Статус учетной записи</span>
                   <div className="text-xs font-semibold text-textPrimary flex items-center gap-2">
                     {getStateBadge(selectedUser.state)}
-                    <span className="text-textTertiary text-[11px] font-mono">
+                    <span className="text-textTertiary text-overline font-mono">
                       {selectedUser.state === 'active' ? 'Полный доступ к платформе' : selectedUser.state === 'pending_deletion' ? `Удаление через ${selectedUser.deletionInfo?.daysRemaining} дн.` : 'Действуют ограничения'}
                     </span>
                   </div>
                 </div>
 
-                <div className="text-right text-[11px] font-mono text-textTertiary">
+                <div className="text-right text-overline font-mono text-textTertiary">
                   <span>Активность:</span>
                   <div className="text-textSecondary">{selectedUser.lastActiveAt}</div>
                 </div>
@@ -815,7 +815,7 @@ export default function AdminUsersPage() {
                   {/* Email */}
                   <div className="p-2.5 bg-surface-2 rounded-lg border border-borderDef space-y-1">
                     <span className="text-[10px] font-mono text-textTertiary block">Email адрес</span>
-                    <span className="font-mono text-[11px] text-textPrimary truncate block" title={selectedUser.email}>
+                    <span className="font-mono text-overline text-textPrimary truncate block" title={selectedUser.email}>
                       {selectedUser.email}
                     </span>
                     <span className="text-[10px] font-mono text-success flex items-center gap-1">
@@ -826,7 +826,7 @@ export default function AdminUsersPage() {
                   {/* Телефон */}
                   <div className="p-2.5 bg-surface-2 rounded-lg border border-borderDef space-y-1">
                     <span className="text-[10px] font-mono text-textTertiary block">Телефон (маскированный)</span>
-                    <span className="font-mono text-[11px] text-textPrimary block">
+                    <span className="font-mono text-overline text-textPrimary block">
                       {selectedUser.phoneMasked}
                     </span>
                     {selectedUser.isPhoneVerified ? (
@@ -841,7 +841,7 @@ export default function AdminUsersPage() {
                   {/* Возраст / DOB */}
                   <div className="p-2.5 bg-surface-2 rounded-lg border border-borderDef space-y-1">
                     <span className="text-[10px] font-mono text-textTertiary block">Возраст / DOB (12+)</span>
-                    <span className="font-mono text-[11px] text-textPrimary block">
+                    <span className="font-mono text-overline text-textPrimary block">
                       {selectedUser.dob}
                     </span>
                     <span className="text-[10px] font-mono text-success flex items-center gap-1">
@@ -852,7 +852,7 @@ export default function AdminUsersPage() {
                   {/* 2FA Статус */}
                   <div className="p-2.5 bg-surface-2 rounded-lg border border-borderDef space-y-1">
                     <span className="text-[10px] font-mono text-textTertiary block">Двухфакторная защита</span>
-                    <span className={`font-mono text-[11px] block font-bold ${selectedUser.is2FAEnabled ? 'text-success' : 'text-textTertiary'}`}>
+                    <span className={`font-mono text-overline block font-bold ${selectedUser.is2FAEnabled ? 'text-success' : 'text-textTertiary'}`}>
                       {selectedUser.is2FAEnabled ? 'TOTP 2FA активна' : 'Отключена'}
                     </span>
                     {selectedUser.role !== 'user' && !selectedUser.is2FAEnabled && (
@@ -872,7 +872,7 @@ export default function AdminUsersPage() {
                 <div className="space-y-2 text-xs">
                   {/* Команды */}
                   <div className="p-3 bg-surface-2 rounded-lg border border-borderDef space-y-1.5">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-textTertiary">
+                    <div className="flex items-center justify-between text-overline font-mono text-textTertiary">
                       <span>Участие в командах:</span>
                       <strong className="text-textPrimary">{selectedUser.teams.length}</strong>
                     </div>
@@ -888,13 +888,13 @@ export default function AdminUsersPage() {
                         ))}
                       </div>
                     ) : (
-                      <span className="text-[11px] text-textTertiary block italic">Не состоит в командах студий</span>
+                      <span className="text-overline text-textTertiary block italic">Не состоит в командах студий</span>
                     )}
                   </div>
 
                   {/* Игры автора */}
                   <div className="p-3 bg-surface-2 rounded-lg border border-borderDef space-y-1.5">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-textTertiary">
+                    <div className="flex items-center justify-between text-overline font-mono text-textTertiary">
                       <span>Игры автора:</span>
                       <strong className="text-textPrimary">{selectedUser.games.length}</strong>
                     </div>
@@ -912,7 +912,7 @@ export default function AdminUsersPage() {
                         ))}
                       </div>
                     ) : (
-                      <span className="text-[11px] text-textTertiary block italic">Нет опубликованных игр</span>
+                      <span className="text-overline text-textTertiary block italic">Нет опубликованных игр</span>
                     )}
                   </div>
                 </div>
@@ -956,7 +956,7 @@ export default function AdminUsersPage() {
                   <button
                     type="button"
                     onClick={handleViewFinances}
-                    className="text-[11px] font-mono text-accent hover:underline flex items-center gap-1 cursor-pointer"
+                    className="text-overline font-mono text-accent hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     <DollarSign className="w-3.5 h-3.5" />
                     <span>Детализация выплат (требует finance.view)</span>
@@ -980,14 +980,14 @@ export default function AdminUsersPage() {
 
                 <div className="p-3.5 bg-surface-2 rounded-xl border border-borderDef space-y-3 text-xs">
                   {selectedUser.role === 'user' ? (
-                    <p className="text-textTertiary text-[11px] italic">
+                    <p className="text-textTertiary text-overline italic">
                       Пользователь не входит в штат сотрудников платформы (обычный User).
                     </p>
                   ) : (
                     <>
                       <div className="flex flex-wrap gap-1.5">
                         {selectedUser.permissions?.includes('*') ? (
-                          <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-accent/20 text-accent border border-accent/40">
+                          <span className="px-2 py-0.5 rounded text-overline font-mono font-bold bg-accent/20 text-accent border border-accent/40">
                             Полный административный доступ (*)
                           </span>
                         ) : selectedUser.permissions && selectedUser.permissions.length > 0 ? (
@@ -997,12 +997,12 @@ export default function AdminUsersPage() {
                             </span>
                           ))
                         ) : (
-                          <span className="text-textTertiary text-[11px] italic">Нет назначенных прав</span>
+                          <span className="text-textTertiary text-overline italic">Нет назначенных прав</span>
                         )}
                       </div>
 
                       {currentStaffRole !== 'super_admin' && (
-                        <div className="p-2 bg-danger/10 border border-danger/20 rounded-lg text-[11px] text-danger flex items-center gap-1.5">
+                        <div className="p-2 bg-danger/10 border border-danger/20 rounded-lg text-overline text-danger flex items-center gap-1.5">
                           <Lock className="w-3.5 h-3.5 shrink-0" />
                           <span>Назначение прав разрешено исключительно SuperAdmin (FR-ACC-071)</span>
                         </div>
@@ -1049,7 +1049,7 @@ export default function AdminUsersPage() {
                               <span className="text-[10px] font-mono text-warning">Срок: {r.expiresAt}</span>
                             )}
                           </div>
-                          <p className="text-textSecondary text-[11px] mt-0.5">{r.reason}</p>
+                          <p className="text-textSecondary text-overline mt-0.5">{r.reason}</p>
                         </div>
                       ))}
                     </div>
@@ -1076,7 +1076,7 @@ export default function AdminUsersPage() {
                   </div>
                 ) : (
                   <div className="p-3 bg-surface-2 rounded-xl border border-borderDef flex items-center justify-between text-xs">
-                    <span className="text-textTertiary italic text-[11px]">
+                    <span className="text-textTertiary italic text-overline">
                       Активных санкций нет. Доступ открыт.
                     </span>
                     <Button
@@ -1127,7 +1127,7 @@ export default function AdminUsersPage() {
                   <button
                     type="button"
                     onClick={handleOpenForcedDeletion}
-                    className="text-[11px] font-mono text-danger hover:text-danger/80 flex items-center gap-1 cursor-pointer font-bold transition-colors"
+                    className="text-overline font-mono text-danger hover:text-danger/80 flex items-center gap-1 cursor-pointer font-bold transition-colors"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                     <span>Принудительное удаление (Forced)</span>

@@ -216,7 +216,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8 md:mb-12">
           <button 
             onClick={() => onNavigate?.('/devlogs')}
-            className="flex items-center gap-2 text-[14px] font-bold text-textTertiary hover:text-textPrimary transition-colors"
+            className="flex items-center gap-2 text-body-sm font-bold text-textTertiary hover:text-textPrimary transition-colors"
           >
             <ChevronLeft className="w-4 h-4" /> Назад в ленту
           </button>
@@ -259,7 +259,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
                 Архивный девлог: игра больше недоступна
                 <span className="text-[11px] font-black uppercase tracking-widest px-2 py-0.5 bg-amber-500/20 rounded">Архив</span>
               </h4>
-              <p className="text-[14px] text-amber-200/80 leading-relaxed">
+              <p className="text-body-sm text-amber-200/80 leading-relaxed">
                 {post.archiveReason || 'Проект игры был удален или снят с публикации автором. Данный девлог сохранен в режиме архива для истории и образовательного обмена опытом.'}
               </p>
             </div>
@@ -278,7 +278,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
                   <h4 className="text-lg font-black text-danger">Запись заблокирована модератором</h4>
                   <span className="text-[11px] font-black uppercase tracking-widest px-2 py-0.5 bg-danger/20 text-danger rounded">Блокировка</span>
                 </div>
-                <p className="text-[14px] text-danger/90 font-medium mb-2">
+                <p className="text-body-sm text-danger/90 font-medium mb-2">
                   <strong>Причина блокировки:</strong> {post.blockReason || 'Нарушение правил сообщества (несанкционированный контент).'}
                 </p>
                 <p className="text-[13px] text-textSecondary leading-relaxed">
@@ -319,7 +319,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
                     value={appealMessage}
                     onChange={(e) => setAppealMessage(e.target.value)}
                     placeholder="Опишите, какие правки были внесены или почему блокировка была ошибочной..."
-                    className="w-full bg-surface-1 border border-danger/30 focus:border-danger rounded-2xl p-3.5 text-[14px] text-textPrimary outline-none min-h-[90px] resize-none"
+                    className="w-full bg-surface-1 border border-danger/30 focus:border-danger rounded-2xl p-3.5 text-body-sm text-textPrimary outline-none min-h-[90px] resize-none"
                   />
                   <div className="flex items-center gap-3">
                     <Button
@@ -342,7 +342,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
               )}
 
               {appealStatus === 'submitted' && (
-                <div className="flex items-center gap-3 bg-surface-1 border border-danger/20 rounded-2xl p-3.5 text-[14px] text-success font-bold">
+                <div className="flex items-center gap-3 bg-surface-1 border border-danger/20 rounded-2xl p-3.5 text-body-sm text-success font-bold">
                   <Check className="w-4 h-4 text-success shrink-0" />
                   <span>Апелляция #AP-849 отправлена модераторам. Ожидайте уведомления о результатах проверки.</span>
                 </div>
@@ -357,7 +357,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
             <EyeOff className="w-5 h-5 text-textSecondary shrink-0 mt-0.5" />
             <div>
               <h4 className="text-[15px] font-bold text-textPrimary mb-1">Пост скрыт из публичного доступа</h4>
-              <p className="text-[14px] text-textSecondary">
+              <p className="text-body-sm text-textSecondary">
                 Запись не отображается в общей ленте и ленте игры. Доступна только автору и менеджеру команды.
               </p>
             </div>
@@ -366,17 +366,17 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
 
         {/* Header Metadata */}
         <div className="flex flex-wrap items-center gap-3 mb-6">
-          <span className="text-[12px] font-black uppercase tracking-widest text-textPrimary bg-surface-2 px-2.5 py-1 rounded-md">
+          <span className="text-caption font-black uppercase tracking-widest text-textPrimary bg-surface-2 px-2.5 py-1 rounded-md">
             {post.type.replace('_', ' ')}
           </span>
 
           {post.jamName && (
-            <span className="text-[12px] font-bold text-warning bg-warning/10 border border-warning/20 px-2.5 py-1 rounded-md flex items-center gap-1.5">
+            <span className="text-caption font-bold text-warning bg-warning/10 border border-warning/20 px-2.5 py-1 rounded-md flex items-center gap-1.5">
               <Trophy className="w-3.5 h-3.5" /> {post.jamName}
             </span>
           )}
 
-          <div className="flex items-center gap-1.5 text-[14px] font-medium text-textTertiary">
+          <div className="flex items-center gap-1.5 text-body-sm font-medium text-textTertiary">
             <span>
               {new Date(post.publishedAt || post.createdAt).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
             </span>
@@ -390,14 +390,14 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
                   <History className="w-3 h-3" /> (отредактировано)
                 </button>
               ) : (
-                <span className="text-[12px] text-textTertiary ml-1 font-medium" title="Запись была отредактирована автором">
+                <span className="text-caption text-textTertiary ml-1 font-medium" title="Запись была отредактирована автором">
                   (изм.)
                 </span>
               )
             )}
           </div>
 
-          <div className="flex items-center gap-1.5 text-textTertiary text-[14px] ml-auto">
+          <div className="flex items-center gap-1.5 text-textTertiary text-body-sm ml-auto">
             <Eye className="w-4 h-4" /> {post.normalizedViews}
           </div>
         </div>
@@ -413,7 +413,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
             {post.authorAvatarUrl ? (
               <img src={post.authorAvatarUrl} alt={post.authorNick} className="w-full h-full object-cover" />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-textSecondary font-bold text-[14px]">
+              <div className="w-full h-full flex items-center justify-center text-textSecondary font-bold text-body-sm">
                 {post.authorNick.charAt(0)}
               </div>
             )}
@@ -452,7 +452,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
               <div className="text-xs font-bold text-info uppercase tracking-widest mb-3">Ищем специалистов</div>
               <div className="flex flex-wrap gap-2">
                 {post.recruitmentDetails.roles.map(role => (
-                  <span key={role} className="px-3 py-1 bg-surface-0 border border-info/20 text-[14px] font-bold text-textPrimary rounded-lg">
+                  <span key={role} className="px-3 py-1 bg-surface-0 border border-info/20 text-body-sm font-bold text-textPrimary rounded-lg">
                     {role}
                   </span>
                 ))}
@@ -474,7 +474,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
               <div className="text-xs font-bold text-warning uppercase tracking-widest mb-3">Направления</div>
               <div className="flex flex-wrap gap-2">
                 {post.feedbackDetails.feedbackCategories.map(cat => (
-                  <span key={cat} className="px-3 py-1 bg-surface-0 border border-warning/20 text-[14px] font-bold text-textPrimary rounded-lg">
+                  <span key={cat} className="px-3 py-1 bg-surface-0 border border-warning/20 text-body-sm font-bold text-textPrimary rounded-lg">
                     {cat}
                   </span>
                 ))}
@@ -500,7 +500,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
         {post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-12">
             {post.tags.map(tag => (
-              <span key={tag} className="text-[14px] font-medium text-textTertiary hover:text-textPrimary cursor-pointer transition-colors">
+              <span key={tag} className="text-body-sm font-medium text-textTertiary hover:text-textPrimary cursor-pointer transition-colors">
                 #{tag}
               </span>
             ))}
@@ -513,7 +513,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
             <button 
               onClick={() => !isConcreteAuthor && setIsLiked(!isLiked)}
               disabled={isConcreteAuthor}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-[14px] transition-all ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-body-sm transition-all ${
                 isConcreteAuthor 
                   ? 'bg-surface-2 text-textTertiary cursor-not-allowed opacity-60' 
                   : isLiked 
@@ -528,7 +528,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
 
             <button 
               onClick={handleShare}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-1 hover:bg-surface-2 border border-borderDef/50 font-bold text-[14px] text-textPrimary transition-all"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-1 hover:bg-surface-2 border border-borderDef/50 font-bold text-body-sm text-textPrimary transition-all"
             >
               {copied ? <Check className="w-4 h-4 text-success" /> : <Share2 className="w-4 h-4 text-textSecondary" />}
               {copied ? 'Скопировано' : 'Поделиться'}
@@ -584,7 +584,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
             <div className="mb-8 p-5 bg-surface-1 rounded-2xl border border-borderDef flex items-center gap-4">
               <MessageSquareOff className="w-5 h-5 text-textTertiary shrink-0" />
               <div>
-                <h4 className="text-[14px] font-bold text-textPrimary">Комментирование закрыто автором</h4>
+                <h4 className="text-body-sm font-bold text-textPrimary">Комментирование закрыто автором</h4>
                 <p className="text-[13px] text-textTertiary">
                   Новые комментарии не принимаются. Существующие комментарии сохранены для чтения.
                 </p>
@@ -596,7 +596,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
             <div className="mb-8 p-5 bg-danger/5 rounded-2xl border border-danger/20 flex items-center gap-4">
               <Lock className="w-5 h-5 text-danger shrink-0" />
               <div>
-                <h4 className="text-[14px] font-bold text-danger">Комментирование закрыто модератором</h4>
+                <h4 className="text-body-sm font-bold text-danger">Комментирование закрыто модератором</h4>
                 <p className="text-[13px] text-danger/70">
                   Ветка комментариев заморожена администрацией платформы.
                 </p>
@@ -609,7 +609,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
             <div className="mb-10">
               {role === 'guest' ? (
                 <div className="p-6 bg-surface-1 border border-borderDef/50 rounded-2xl flex items-center justify-between gap-4">
-                  <span className="text-[14px] text-textSecondary font-medium">Войдите, чтобы оставить комментарий</span>
+                  <span className="text-body-sm text-textSecondary font-medium">Войдите, чтобы оставить комментарий</span>
                   <Button variant="primary" size="sm" onClick={() => openAuthModal('LOGIN')}>Войти</Button>
                 </div>
               ) : (
@@ -638,19 +638,19 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
               </div>
               <div className="flex-1 pt-0.5">
                 <div className="flex items-center gap-2 mb-1">
-                  <div className="text-[14px] font-bold text-textPrimary">ToxiK</div>
-                  <div className="text-[12px] font-medium text-textTertiary">2 часа назад</div>
+                  <div className="text-body-sm font-bold text-textPrimary">ToxiK</div>
+                  <div className="text-caption font-medium text-textTertiary">2 часа назад</div>
                 </div>
                 <p className="text-[15px] text-textSecondary leading-relaxed mb-3">
                   Отличное обновление! Жду не дождусь, когда можно будет поиграть в бету.
                 </p>
                 <div className="flex items-center gap-4">
                   {commentsState === 'open' && (
-                    <button className="text-[12px] font-bold text-textTertiary hover:text-textPrimary transition-colors">
+                    <button className="text-caption font-bold text-textTertiary hover:text-textPrimary transition-colors">
                       Ответить
                     </button>
                   )}
-                  <button className="text-[12px] font-bold text-textTertiary hover:text-textPrimary transition-colors flex items-center gap-1.5">
+                  <button className="text-caption font-bold text-textTertiary hover:text-textPrimary transition-colors flex items-center gap-1.5">
                     <Heart className="w-3 h-3" /> 2
                   </button>
                 </div>
@@ -678,27 +678,27 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
               </div>
               <div>
                 <h3 className="text-xl font-black text-textPrimary">История изменений записи</h3>
-                <span className="text-[12px] font-bold text-textTertiary">Аудит изменений</span>
+                <span className="text-caption font-bold text-textTertiary">Аудит изменений</span>
               </div>
             </div>
 
             <div className="space-y-4 mb-6">
               <div className="p-4 rounded-2xl bg-surface-2/60 border border-borderDef/50 flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-[14px] font-bold text-textPrimary mb-0.5">Текущая версия (v2)</div>
-                  <div className="text-[12px] text-textTertiary">Текст девлога обновлен автором</div>
+                  <div className="text-body-sm font-bold text-textPrimary mb-0.5">Текущая версия (v2)</div>
+                  <div className="text-caption text-textTertiary">Текст девлога обновлен автором</div>
                 </div>
-                <span className="text-[12px] font-bold text-accent px-2 py-1 rounded bg-accent/10">
+                <span className="text-caption font-bold text-accent px-2 py-1 rounded bg-accent/10">
                   {new Date(post.updatedAt).toLocaleDateString('ru-RU')}
                 </span>
               </div>
 
               <div className="p-4 rounded-2xl bg-surface-2/30 border border-borderDef/30 flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-[14px] font-bold text-textPrimary mb-0.5">Первоначальная публикация (v1)</div>
-                  <div className="text-[12px] text-textTertiary">Запись размещена в публичной ленте</div>
+                  <div className="text-body-sm font-bold text-textPrimary mb-0.5">Первоначальная публикация (v1)</div>
+                  <div className="text-caption text-textTertiary">Запись размещена в публичной ленте</div>
                 </div>
-                <span className="text-[12px] font-bold text-textTertiary px-2 py-1 rounded bg-surface-3">
+                <span className="text-caption font-bold text-textTertiary px-2 py-1 rounded bg-surface-3">
                   {new Date(post.publishedAt || post.createdAt).toLocaleDateString('ru-RU')}
                 </span>
               </div>
@@ -726,7 +726,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
               <h3 className="text-xl font-black">Удалить этот девлог?</h3>
             </div>
 
-            <p className="text-[14px] text-textSecondary leading-relaxed mb-6">
+            <p className="text-body-sm text-textSecondary leading-relaxed mb-6">
               Запись будет снята с публикации (soft-delete). Заголовок и метаданные останутся в архиве для аудита модерации.
             </p>
 
@@ -767,7 +767,7 @@ export default function DevLogPage({ slug, onNavigate }: { slug: string, onNavig
               </div>
               <div>
                 <h3 className="text-xl font-black text-textPrimary">Пожаловаться на запись</h3>
-                <span className="text-[12px] font-bold text-textTertiary">Модерация контента</span>
+                <span className="text-caption font-bold text-textTertiary">Модерация контента</span>
               </div>
             </div>
 
