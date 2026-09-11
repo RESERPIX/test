@@ -73,7 +73,7 @@ export default function DevLogGameWidget({ gameId, gameSlug, gameName, isOwner }
                         <Pin className="w-3 h-3 fill-accent" /> Закреплено
                       </span>
                     )}
-                    <span className={`text-caption font-mono font-bold px-2.5 py-0.5 rounded-control border ${typeInfo.style}`}>
+                    <span className={`text-[12px] font-mono font-bold px-2.5 py-0.5 rounded-control border ${typeInfo.style}`}>
                       {typeInfo.label}
                     </span>
 
@@ -100,7 +100,7 @@ export default function DevLogGameWidget({ gameId, gameSlug, gameName, isOwner }
                     </div>
                   )}
                   <div className="flex-1">
-                    <p className="text-body-sm text-textSecondary leading-[1.65] font-sans line-clamp-3">
+                    <p className="text-[14px] text-textSecondary leading-[1.65] font-sans line-clamp-3">
                       {post.bodyMarkdown.substring(0, 300).replace(/[#*`_\[\]]/g, '')}
                     </p>
                     <div className="flex items-center gap-2 mt-4 cursor-pointer hover:underline w-max">

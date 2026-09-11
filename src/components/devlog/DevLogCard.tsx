@@ -101,7 +101,7 @@ export default function DevLogCard({ post, onClick }: DevLogCardProps) {
           {post.title}
         </h3>
         
-        <p className="text-body-sm text-textSecondary leading-relaxed line-clamp-3 mb-6 flex-1 font-medium">
+        <p className="text-[14px] text-textSecondary leading-relaxed line-clamp-3 mb-6 flex-1 font-medium">
           {post.bodyMarkdown.replace(/[#*`_\[\]]/g, '')}
         </p>
 
@@ -147,8 +147,8 @@ export default function DevLogCard({ post, onClick }: DevLogCardProps) {
               )}
             </div>
             <div className="flex flex-col">
-              <span className="text-body-sm font-bold text-textPrimary leading-none">{post.publisherName}</span>
-              {post.gameName && <span className="text-caption font-medium text-textTertiary mt-1 truncate max-w-[120px]">{post.gameName}</span>}
+              <span className="text-[14px] font-bold text-textPrimary leading-none">{post.publisherName}</span>
+              {post.gameName && <span className="text-[12px] font-medium text-textTertiary mt-1 truncate max-w-[120px]">{post.gameName}</span>}
             </div>
           </div>
 

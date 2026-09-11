@@ -1924,7 +1924,7 @@ export default function JamPage({ authState, setAuthState }: { authState?: strin
                             window.location.hash = '#/jams/broken-worlds-jam/submit';
                           }
                         }} 
-                        className="mt-1 min-h-11 px-6 bg-accent hover:bg-accent-hover text-white font-bold text-caption rounded-lg transition-all active:scale-[0.98] cursor-pointer"
+                        className="mt-1 min-h-[44px] px-6 bg-accent hover:bg-accent-hover text-white font-bold text-caption rounded-lg transition-all active:scale-[0.98] cursor-pointer"
                       >
                         Подать свою игру
                       </button>
@@ -3154,7 +3154,7 @@ export default function JamPage({ authState, setAuthState }: { authState?: strin
               </div>
 
               {/* ЖАЛОБА */}
-              <button onClick={() => setActiveDrawer('report')} className="text-caption text-textTertiary hover:text-danger flex items-center gap-2 transition-colors cursor-pointer min-h-11">
+              <button onClick={() => setActiveDrawer('report')} className="text-caption text-textTertiary hover:text-danger flex items-center gap-2 transition-colors cursor-pointer min-h-[44px]">
                 <Flag className="w-3.5 h-3.5" /> <span>Заявить о нарушении правил джема</span>
               </button>
 
@@ -3480,7 +3480,7 @@ export default function JamPage({ authState, setAuthState }: { authState?: strin
                 value={newDevlogTitle}
                 onChange={e => setNewDevlogTitle(e.target.value)}
                 placeholder="Например: Разбор генерации лабиринта за 24 часа..."
-                className="bg-surface-2 border border-borderDef text-textPrimary p-3 min-h-11 text-caption sm:text-body-sm rounded outline-none focus:border-accent placeholder:text-textTertiary"
+                className="bg-surface-2 border border-borderDef text-textPrimary p-3 min-h-[44px] text-caption sm:text-body-sm rounded outline-none focus:border-accent placeholder:text-textTertiary"
               />
             </div>
 
@@ -3497,7 +3497,7 @@ export default function JamPage({ authState, setAuthState }: { authState?: strin
 
           <button 
             onClick={handlePublishDevlog}
-            className="w-full bg-accent hover:bg-accent-hover text-white font-bold text-caption min-h-11 py-3.5 rounded-xl tracking-wide transition-all active:scale-[0.98] cursor-pointer mt-4"
+            className="w-full bg-accent hover:bg-accent-hover text-white font-bold text-caption min-h-[44px] py-3.5 rounded-xl tracking-wide transition-all active:scale-[0.98] cursor-pointer mt-4"
           >
             Опубликовать DevLog
           </button>

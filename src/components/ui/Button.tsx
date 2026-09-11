@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({
   const sizeStyles = {
     sm: 'min-h-[36px] sm:min-h-[32px] h-9 sm:h-8 px-3 text-xs rounded-control gap-1.5 font-semibold',
     md: 'min-h-[40px] sm:min-h-[36px] h-10 sm:h-9 px-4 text-xs rounded-control gap-2 font-semibold',
-    lg: 'min-h-11 h-11 px-6 text-sm rounded-control gap-2.5 font-extrabold uppercase tracking-wider',
+    lg: 'min-h-[44px] h-11 px-6 text-sm rounded-control gap-2.5 font-extrabold uppercase tracking-wider',
     xl: 'min-h-[48px] h-12 px-6 text-sm rounded-control gap-2.5 font-extrabold uppercase tracking-wider',
   };
 

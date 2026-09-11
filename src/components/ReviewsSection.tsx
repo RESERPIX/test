@@ -206,7 +206,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({
                       />
                       <div className="space-y-1">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <span className="text-body-sm font-bold text-textPrimary">{review.author}</span>
+                          <span className="text-[14px] font-bold text-textPrimary">{review.author}</span>
                           {review.isVerifiedOwner && (
                             <Badge variant="neutral" size="sm" className="font-mono text-[9px] gap-1 px-1.5 h-4 flex items-center">
                               <CheckCircle2 className="w-2.5 h-2.5 text-success" />

@@ -1242,7 +1242,7 @@ export default function SettingsPage() {
 
                   {/* Dev Mode Scenario Switcher for QA */}
                   <div className="flex items-center gap-2 p-1.5 bg-surface-2 border border-borderDef rounded-lg shrink-0 flex-wrap">
-                    <span className="text-overline font-mono text-textTertiary uppercase px-1">Тест:</span>
+                    <span className="text-[11px] font-mono text-textTertiary uppercase px-1">Тест:</span>
                     <button
                       type="button"
                       onClick={() => { setHasLocalPassword(true); showToast('Режим: Пароль активен', 'info'); }}
@@ -1316,13 +1316,13 @@ export default function SettingsPage() {
                         <div className="flex items-center gap-2 shrink-0">
                           <button
                             onClick={() => setEmailModalState(prev => ({ ...prev, isOpen: true, step: 'verify' }))}
-                            className="px-2.5 py-1 bg-warning text-black rounded font-bold text-caption hover:bg-warning/90 transition-colors uppercase font-mono"
+                            className="px-2.5 py-1 bg-warning text-black rounded font-bold text-[11px] hover:bg-warning/90 transition-colors uppercase font-mono"
                           >
                             Ввести код
                           </button>
                           <button
                             onClick={() => { setPendingEmail(null); showToast('Смена email отменена', 'info'); }}
-                            className="text-textTertiary hover:text-danger text-caption font-medium underline"
+                            className="text-textTertiary hover:text-danger text-[11px] font-medium underline"
                           >
                             Отменить
                           </button>
@@ -1568,7 +1568,7 @@ export default function SettingsPage() {
                             : 'Второй фактор обязателен при входе с новых устройств'}
                         </span>
                       </div>
-                      <div className="text-textTertiary font-mono text-caption">
+                      <div className="text-textTertiary font-mono text-[11px]">
                         Доступно кодов восстановления: {recoveryCodes.length} из 10
                       </div>
                     </div>
@@ -1760,7 +1760,7 @@ export default function SettingsPage() {
 
                 {/* Dev Mode Scenario Switcher for QA */}
                 <div className="flex items-center gap-2 p-1.5 bg-surface-2 border border-borderDef rounded-lg shrink-0">
-                  <span className="text-overline font-mono text-textTertiary uppercase px-1">Тест:</span>
+                  <span className="text-[11px] font-mono text-textTertiary uppercase px-1">Тест:</span>
                   <button
                     type="button"
                     onClick={() => {
@@ -1807,7 +1807,7 @@ export default function SettingsPage() {
                   </span>
                 </div>
                 {totalActiveLoginMethods === 1 && (
-                  <span className="text-caption text-warning bg-warning/10 border border-warning/30 px-2 py-0.5 rounded font-medium">
+                  <span className="text-[11px] text-warning bg-warning/10 border border-warning/30 px-2 py-0.5 rounded font-medium">
                     Защита последнего метода
                   </span>
                 )}
@@ -2011,10 +2011,10 @@ export default function SettingsPage() {
                         Locked
                       </span>
                     </div>
-                    <p className="text-caption text-textSecondary leading-relaxed">
+                    <p className="text-[11px] text-textSecondary leading-relaxed">
                       Смена пароля, email, телефона, вход с нового устройства (SC-ACC-053), привязка 2FA и провайдеров.
                     </p>
-                    <div className="pt-2 border-t border-borderDef/60 flex items-center justify-between text-overline font-mono">
+                    <div className="pt-2 border-t border-borderDef/60 flex items-center justify-between text-[11px] font-mono">
                       <span className="text-textTertiary">Каналы: In-App, Email</span>
                       <span className="text-success font-bold flex items-center gap-1">
                         <CheckCircle2 className="w-3 h-3" /> Активно
@@ -2035,10 +2035,10 @@ export default function SettingsPage() {
                         Locked
                       </span>
                     </div>
-                    <p className="text-caption text-textSecondary leading-relaxed">
+                    <p className="text-[11px] text-textSecondary leading-relaxed">
                       Блокировки (Suspension / Ban), статус апелляций, запуск и отмена 30-дневного удаления аккаунта.
                     </p>
-                    <div className="pt-2 border-t border-borderDef/60 flex items-center justify-between text-overline font-mono">
+                    <div className="pt-2 border-t border-borderDef/60 flex items-center justify-between text-[11px] font-mono">
                       <span className="text-textTertiary">Каналы: In-App, Email</span>
                       <span className="text-success font-bold flex items-center gap-1">
                         <CheckCircle2 className="w-3 h-3" /> Активно
@@ -2059,10 +2059,10 @@ export default function SettingsPage() {
                         Locked
                       </span>
                     </div>
-                    <p className="text-caption text-textSecondary leading-relaxed">
+                    <p className="text-[11px] text-textSecondary leading-relaxed">
                       Статус выплат продавца, заморозка баланса, чеки покупок и возврат средств (Refunds).
                     </p>
-                    <div className="pt-2 border-t border-borderDef/60 flex items-center justify-between text-overline font-mono">
+                    <div className="pt-2 border-t border-borderDef/60 flex items-center justify-between text-[11px] font-mono">
                       <span className="text-textTertiary">Каналы: In-App, Email</span>
                       <span className="text-success font-bold flex items-center gap-1">
                         <CheckCircle2 className="w-3 h-3" /> Активно
@@ -2117,7 +2117,7 @@ export default function SettingsPage() {
                             <td className="py-3.5 px-4">
                               <div className="space-y-0.5">
                                 <span className="font-bold text-xs text-textPrimary block">{pref.title}</span>
-                                <span className="text-caption text-textSecondary leading-relaxed block">{pref.description}</span>
+                                <span className="text-[11px] text-textSecondary leading-relaxed block">{pref.description}</span>
                               </div>
                             </td>
 
@@ -2159,7 +2159,7 @@ export default function SettingsPage() {
 
                 {/* ФУТЕР СОХРАНЕНИЯ */}
                 <div className="flex items-center justify-between pt-2">
-                  <span className="text-overline font-mono text-textTertiary">
+                  <span className="text-[11px] font-mono text-textTertiary">
                     Изменения вступают в силу немедленно после сохранения
                   </span>
                   <Button
@@ -2227,7 +2227,7 @@ export default function SettingsPage() {
                               <span className="text-accent">{game.latestUpdate}</span>
                               <span className="text-textTertiary">({game.updateDate})</span>
                             </p>
-                            <p className="text-caption text-textTertiary">
+                            <p className="text-[11px] text-textTertiary">
                               Подписка оформлена: {game.subscribedAt}
                             </p>
                           </div>
@@ -2235,7 +2235,7 @@ export default function SettingsPage() {
 
                         <div className="flex items-center gap-3 shrink-0 self-end md:self-center">
                           <div className="flex items-center gap-2 mr-2">
-                            <label className="text-caption text-textSecondary cursor-pointer select-none flex items-center gap-1.5">
+                            <label className="text-[11px] text-textSecondary cursor-pointer select-none flex items-center gap-1.5">
                               <input
                                 type="checkbox"
                                 checked={game.patchesEnabled}
@@ -2244,7 +2244,7 @@ export default function SettingsPage() {
                               />
                               Патчи
                             </label>
-                            <label className="text-caption text-textSecondary cursor-pointer select-none flex items-center gap-1.5 ml-2">
+                            <label className="text-[11px] text-textSecondary cursor-pointer select-none flex items-center gap-1.5 ml-2">
                               <input
                                 type="checkbox"
                                 checked={game.announcementsEnabled}
@@ -2340,7 +2340,7 @@ export default function SettingsPage() {
                   <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-textSecondary">
                     Точечные ограничения возможностей (Scoped Capabilities)
                   </h4>
-                  <span className="text-overline font-mono text-textTertiary">
+                  <span className="text-[11px] font-mono text-textTertiary">
                     Без полного бана аккаунта (BR-ACC-056)
                   </span>
                 </div>
@@ -2369,7 +2369,7 @@ export default function SettingsPage() {
 
                   {scopedRestrictions.comments && (
                     <div className="p-3 bg-warning/10 border border-warning/20 rounded-lg text-xs space-y-2">
-                      <div className="flex items-start justify-between text-overline font-mono text-textSecondary">
+                      <div className="flex items-start justify-between text-[11px] font-mono text-textSecondary">
                         <span>Дело: #RES-COM-1049</span>
                         <span className="text-warning font-semibold">Срок: до 18 сентября 2026</span>
                       </div>
@@ -2421,7 +2421,7 @@ export default function SettingsPage() {
 
                   {scopedRestrictions.publishing && (
                     <div className="p-3 bg-warning/10 border border-warning/20 rounded-lg text-xs space-y-2">
-                      <div className="flex items-start justify-between text-overline font-mono text-textSecondary">
+                      <div className="flex items-start justify-between text-[11px] font-mono text-textSecondary">
                         <span>Дело: #RES-PUB-8041</span>
                         <span className="text-warning font-semibold">Срок: до 15 сентября 2026</span>
                       </div>
@@ -2473,7 +2473,7 @@ export default function SettingsPage() {
 
                   {scopedRestrictions.payouts && (
                     <div className="p-3 bg-warning/10 border border-warning/20 rounded-lg text-xs space-y-2">
-                      <div className="flex items-start justify-between text-overline font-mono text-textSecondary">
+                      <div className="flex items-start justify-between text-[11px] font-mono text-textSecondary">
                         <span>Дело: #RES-PAY-2309</span>
                         <span className="text-warning font-semibold">Срок: до подтверждения документов</span>
                       </div>
@@ -2510,7 +2510,7 @@ export default function SettingsPage() {
                     <FileText className="w-4 h-4 text-accent" />
                     Журнал истории взысканий и апелляций
                   </h4>
-                  <span className="text-overline font-mono text-textTertiary">
+                  <span className="text-[11px] font-mono text-textTertiary">
                     Неизменяемый реестр
                   </span>
                 </div>
@@ -2519,7 +2519,7 @@ export default function SettingsPage() {
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs font-sans">
                       <thead>
-                        <tr className="border-b border-borderDef bg-surface-3/50 text-overline font-mono text-textTertiary uppercase">
+                        <tr className="border-b border-borderDef bg-surface-3/50 text-[11px] font-mono text-textTertiary uppercase">
                           <th className="py-2.5 px-3 font-semibold">Дело / Дата</th>
                           <th className="py-2.5 px-3 font-semibold">Тип и область</th>
                           <th className="py-2.5 px-3 font-semibold">Причина</th>
@@ -2542,9 +2542,9 @@ export default function SettingsPage() {
                                 {item.type === 'suspension' ? 'Приостановка' :
                                  item.type === 'scoped_restriction' ? 'Точечное' : 'Предупреждение'}
                               </span>
-                              <span className="text-textSecondary text-caption font-sans block">{item.capability}</span>
+                              <span className="text-textSecondary text-[11px] font-sans block">{item.capability}</span>
                             </td>
-                            <td className="py-3 px-3 max-w-xs font-sans text-textSecondary text-caption leading-snug">
+                            <td className="py-3 px-3 max-w-xs font-sans text-textSecondary text-[11px] leading-snug">
                               {item.reason}
                             </td>
                             <td className="py-3 px-3 text-right">
@@ -2625,7 +2625,7 @@ export default function SettingsPage() {
                     <ShieldAlert className="w-4 h-4 text-accent" />
                     Проверка зависимостей перед удалением
                   </h4>
-                  <span className="text-overline font-mono text-textTertiary">
+                  <span className="text-[11px] font-mono text-textTertiary">
                     Обязательные системные инварианты
                   </span>
                 </div>
@@ -2884,7 +2884,7 @@ export default function SettingsPage() {
                   <p>
                     Вы будете перенаправлены на страницу подтверждения авторизации <strong>{providerToLink.name}</strong>.
                   </p>
-                  <p className="text-textTertiary font-mono text-caption">
+                  <p className="text-textTertiary font-mono text-[11px]">
                     Платформа получит только ваш подтверждённый идентификатор пользователя для авторизации.
                   </p>
                 </div>
@@ -3032,7 +3032,7 @@ export default function SettingsPage() {
                     onChange={(e) => setEmailModalState(prev => ({ ...prev, newEmail: e.target.value, error: undefined }))}
                     autoFocus
                   />
-                  <p className="text-caption text-textTertiary">
+                  <p className="text-[11px] text-textTertiary">
                     На указанный адрес будет отправлен 6-значный проверочный код.
                   </p>
                 </div>
@@ -3066,7 +3066,7 @@ export default function SettingsPage() {
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <label className="text-caption font-bold text-textSecondary uppercase tracking-wider">6-значный код</label>
-                    <span className="text-overline font-mono text-accent">Тест: 123456</span>
+                    <span className="text-[11px] font-mono text-accent">Тест: 123456</span>
                   </div>
                   <Input
                     type="text"
@@ -3217,7 +3217,7 @@ export default function SettingsPage() {
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <label className="text-caption font-bold text-textSecondary uppercase tracking-wider">Код из СМС</label>
-                    <span className="text-overline font-mono text-accent">Тест: 4812</span>
+                    <span className="text-[11px] font-mono text-accent">Тест: 4812</span>
                   </div>
                   <Input
                     type="text"
@@ -3319,7 +3319,7 @@ export default function SettingsPage() {
                       <div className="space-y-1.5 pt-2 border-t border-borderDef/60">
                         <div className="flex items-center justify-between">
                           <label className="text-caption font-bold text-textSecondary uppercase tracking-wider block">Код двухфакторной аутентификации</label>
-                          <span className="text-overline font-mono text-accent">Тест: 123456</span>
+                          <span className="text-[11px] font-mono text-accent">Тест: 123456</span>
                         </div>
                         <Input
                           type="text"
@@ -3329,7 +3329,7 @@ export default function SettingsPage() {
                           onChange={(e) => setPasswordModalState(prev => ({ ...prev, twoFACode: e.target.value.replace(/\D/g, ''), error: undefined }))}
                           className="text-center font-mono text-xl tracking-widest"
                         />
-                        <p className="text-caption text-textTertiary">Введите 6 цифр из приложения Google Authenticator или Authy</p>
+                        <p className="text-[11px] text-textTertiary">Введите 6 цифр из приложения Google Authenticator или Authy</p>
                       </div>
                     )}
                   </>
@@ -3354,7 +3354,7 @@ export default function SettingsPage() {
                     <div className="space-y-1.5">
                       <div className="flex items-center justify-between">
                         <label className="text-caption font-bold text-textSecondary uppercase tracking-wider block">Проверочный код</label>
-                        <span className="text-overline font-mono text-accent">Тест: 938104</span>
+                        <span className="text-[11px] font-mono text-accent">Тест: 938104</span>
                       </div>
                       <Input
                         type="text"
@@ -3433,7 +3433,7 @@ export default function SettingsPage() {
                     const strength = getPasswordStrength(passwordModalState.newPass);
                     return (
                       <div className="space-y-1.5 pt-1 animate-fadeIn">
-                        <div className="flex items-center justify-between text-caption">
+                        <div className="flex items-center justify-between text-[11px]">
                           <span className="text-textSecondary">Надежность пароля:</span>
                           <span className={`font-bold ${
                             strength.score <= 1 ? 'text-danger' :
@@ -3450,7 +3450,7 @@ export default function SettingsPage() {
                     );
                   })()}
 
-                  <div className="text-caption text-textTertiary space-y-0.5 pt-1">
+                  <div className="text-[11px] text-textTertiary space-y-0.5 pt-1">
                     <div className="flex items-center gap-1.5">
                       <span className={passwordModalState.newPass.length >= 8 ? 'text-success font-medium' : 'text-textTertiary'}>
                         {passwordModalState.newPass.length >= 8 ? '✓' : '•'} Минимум 8 символов
@@ -3590,7 +3590,7 @@ export default function SettingsPage() {
                     <div className="space-y-1.5">
                       <div className="flex items-center justify-between">
                         <label className="text-caption font-bold text-textSecondary uppercase tracking-wider block">Проверочный код</label>
-                        <span className="text-overline font-mono text-accent">Тест: 938104</span>
+                        <span className="text-[11px] font-mono text-accent">Тест: 938104</span>
                       </div>
                       <Input
                         type="text"
@@ -3856,7 +3856,7 @@ export default function SettingsPage() {
                   <div className="p-3.5 bg-surface-2 rounded-xl border border-borderDef space-y-2">
                     <div className="text-xs text-textSecondary flex items-center justify-between">
                       <span>Не можете отсканировать QR-код?</span>
-                      <span className="text-caption text-textTertiary">Секретный ключ:</span>
+                      <span className="text-[11px] text-textTertiary">Секретный ключ:</span>
                     </div>
                     <div className="flex items-center justify-between gap-2 bg-surface-3 px-3 py-2 rounded-lg border border-borderDef font-mono text-sm">
                       <span className="font-bold tracking-widest text-textPrimary select-all">
@@ -3920,7 +3920,7 @@ export default function SettingsPage() {
                       <label className="text-caption font-bold text-textSecondary uppercase tracking-wider block">
                         Одноразовый пароль TOTP
                       </label>
-                      <span className="text-overline font-mono text-accent">Тест: 123456</span>
+                      <span className="text-[11px] font-mono text-accent">Тест: 123456</span>
                     </div>
                     <Input
                       type="text"

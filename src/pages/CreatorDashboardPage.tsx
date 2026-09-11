@@ -1,5 +1,4 @@
 import DevMatrixPanel from '../components/DevMatrixPanel';
-import Button from '../components/ui/Button';
 import React, { useState, useEffect, useRef } from 'react';
 import { RequestPayoutModal } from './CreatorDashboard/modals/RequestPayoutModal';
 import { SellerVerificationModal } from './CreatorDashboard/modals/SellerVerificationModal';
@@ -742,7 +741,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
             
             {/* Scope Selector */}
             <div className="relative" ref={scopeMenuRef}>
-              <Button 
+              <button 
                 onClick={() => setIsScopeDropdownOpen(!isScopeDropdownOpen)}
                 className="flex items-center gap-3 hover:bg-surface-1 p-2 -ml-2 rounded-card transition-colors outline-none focus-visible:outline-none"
               >
@@ -759,18 +758,18 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                     <h1 className="text-heading-3 font-bold text-textPrimary tracking-tight">{scopeInfo.name}</h1>
                     <ChevronDown className={`w-4 h-4 text-textSecondary transition-transform duration-200 ${isScopeDropdownOpen ? 'rotate-180' : ''}`} />
                   </div>
-                  <span className="text-overline font-mono text-textSecondary uppercase tracking-wider">
+                  <span className="text-[11px] font-mono text-textSecondary uppercase tracking-wider">
                     {scope === 'personal' ? 'Личный аккаунт' : scope === 'all' ? 'Все ресурсы' : scopeInfo.badge}
                   </span>
                 </div>
-              </Button>
+              </button>
 
               {isScopeDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-[260px] bg-surface-2/95 backdrop-blur-xl border border-borderDef shadow-elevation-overlay rounded-card p-1.5 font-sans text-xs animate-fadeIn space-y-0.5 z-50">
                   <span className="px-2.5 py-1.5 text-[10px] font-mono text-textTertiary uppercase tracking-wider block">Личный</span>
-                  <Button 
+                  <button 
                     onClick={() => handleScopeChange('personal', 'Контекст: Личный аккаунт')}
-                    className={scope === 'personal' ? 'w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer bg-accent/15 text-accent font-bold' : 'w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3'}
+                    className={scope === 'personal' ? 'w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer bg-accent/15 text-accent font-bold' : 'w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3'}
                   >
                     <div className="flex items-center gap-2.5">
                       <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center">
@@ -779,16 +778,16 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                       <span className="font-semibold text-sm">Личный аккаунт</span>
                     </div>
                     {scope === 'personal' && <Check className="w-4 h-4 text-accent" />}
-                  </Button>
+                  </button>
 
                   <div className="my-1.5 border-t border-borderDef" />
                   <span className="px-2.5 py-1.5 text-[10px] font-mono text-textTertiary uppercase tracking-wider block">Команды</span>
                   
                   {teamsList.map(team => (
-                    <Button 
+                    <button 
                       key={team.id}
                       onClick={() => handleScopeChange(team.id, `Контекст: ${team.name}`)}
-                      className={scope === team.id ? 'w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer bg-accent/15 text-accent font-bold' : 'w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3'}
+                      className={scope === team.id ? 'w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer bg-accent/15 text-accent font-bold' : 'w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3'}
                     >
                       <div className="flex items-center gap-2.5">
                         <div className="w-6 h-6 rounded-full border border-surface-3 overflow-hidden bg-surface-0">
@@ -799,52 +798,52 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                         </div>
                       </div>
                       {scope === team.id && <Check className="w-4 h-4 text-accent" />}
-                    </Button>
+                    </button>
                   ))}
 
                   <div className="my-1.5 border-t border-borderDef" />
-                  <Button 
+                  <button 
                     onClick={() => handleScopeChange('all', 'Контекст: Все ресурсы')}
-                    className={scope === 'all' ? 'w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer bg-accent/15 text-accent font-bold' : 'w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3'}
+                    className={scope === 'all' ? 'w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer bg-accent/15 text-accent font-bold' : 'w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center justify-between transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3'}
                   >
                     <div className="flex items-center gap-2.5">
                       <FolderKanban className="w-4 h-4 text-textSecondary" />
                       <span className="font-medium text-sm">Все ресурсы (Агрегация)</span>
                     </div>
                     {scope === 'all' && <Check className="w-4 h-4 text-accent" />}
-                  </Button>
+                  </button>
                 </div>
               )}
             </div>
 
             {/* Smart Create Button */}
             <div className="relative w-full lg:w-auto" ref={createMenuRef}>
-              <Button 
+              <button 
                 onClick={() => setIsCreateMenuOpen(!isCreateMenuOpen)}
                 className="w-full lg:w-auto h-10 px-5 bg-accent hover:bg-accent-hover-hover text-white border border-transparent shadow-accent/20 font-bold text-sm rounded-control transition-colors flex items-center justify-center gap-2 shadow-elevation-base focus:outline-none"
               >
                 <Plus className="w-4 h-4 stroke-[2.5]" />
                 <span>Создать...</span>
-              </Button>
+              </button>
 
               {isCreateMenuOpen && (
                 <div className="absolute right-0 top-full mt-2 w-56 bg-surface-2/95 backdrop-blur-xl border border-borderDef shadow-elevation-overlay rounded-card p-1.5 font-sans text-xs animate-fadeIn space-y-0.5 z-50">
-                  <Button 
+                  <button 
                     onClick={() => { setIsCreateMenuOpen(false); triggerToast('Редирект на /creator/games/new'); }}
-                    className="w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"
+                    className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"
                   >
                     <Gamepad2 className="w-4 h-4 text-textPrimary" /> Новую игру
-                  </Button>
-                  <Button 
+                  </button>
+                  <button 
                     onClick={() => { 
                       setIsCreateMenuOpen(false); 
                       if ((window as any).__hubigrNavigate) (window as any).__hubigrNavigate('/devlogs/new');
                       else window.location.href = '#/devlogs/new';
                     }}
-                    className="w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"
+                    className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"
                   >
                     <FileText className="w-4 h-4 text-textPrimary" /> Девлог / Новость
-                  </Button>
+                  </button>
                 </div>
               )}
             </div>
@@ -865,7 +864,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
               { id: 'teams', label: 'Команды' },
               { id: 'support', label: 'Поддержка' }
             ].map(tab => (
-              <Button
+              <button
                 key={tab.id}
                 onClick={() => setActiveNav(tab.id)}
                 className={`pb-3.5 relative transition-colors cursor-pointer focus-visible:outline-none ${
@@ -876,7 +875,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                 {activeNav === tab.id && (
                   <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent rounded-t-full" />
                 )}
-              </Button>
+              </button>
             ))}
           </div>
         </div>
@@ -893,12 +892,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                 Опубликуйте свою первую игру, чтобы отслеживать статистику, собирать отзывы и начать зарабатывать.
               </p>
             </div>
-            <Button 
+            <button 
               onClick={() => { setPageState('standard'); triggerToast('Редирект на /creator/games/new'); }}
               className="mt-2 px-6 py-3 bg-accent hover:bg-accent-hover-hover text-white border border-transparent shadow-accent/20 font-bold text-sm rounded-control transition-colors flex items-center gap-2 shadow-elevation-base"
             >
               <Plus className="w-4 h-4 stroke-[2.5]" /> Создать проект
-            </Button>
+            </button>
           </div>
         ) : (
           <div className="animate-fadeIn">
@@ -912,12 +911,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                   className="p-5 flex flex-col justify-between hover:bg-surface-2 cursor-pointer transition-colors group"
                 >
                   <div className="flex items-center justify-between text-textSecondary mb-3">
-                    <span className="text-overline font-mono font-bold uppercase tracking-wider">Просмотры</span>
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider">Просмотры</span>
                     <Eye className="w-4 h-4 text-textTertiary group-hover:text-accent transition-colors" />
                   </div>
                   <div className="flex items-baseline justify-between">
                     <span className="text-heading-2 font-bold text-textPrimary font-mono">49,050</span>
-                    <span className="text-overline font-mono font-bold text-success">+14%</span>
+                    <span className="text-[11px] font-mono font-bold text-success">+14%</span>
                   </div>
                 </div>
 
@@ -926,12 +925,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                   className="p-5 flex flex-col justify-between hover:bg-surface-2 cursor-pointer transition-colors group"
                 >
                   <div className="flex items-center justify-between text-textSecondary mb-3">
-                    <span className="text-overline font-mono font-bold uppercase tracking-wider">Запуски</span>
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider">Запуски</span>
                     <Download className="w-4 h-4 text-textTertiary group-hover:text-info transition-colors" />
                   </div>
                   <div className="flex items-baseline justify-between">
                     <span className="text-heading-2 font-bold text-textPrimary font-mono">12,820</span>
-                    <span className="text-overline font-mono text-textTertiary">30 дней</span>
+                    <span className="text-[11px] font-mono text-textTertiary">30 дней</span>
                   </div>
                 </div>
 
@@ -940,12 +939,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                   className="p-5 flex flex-col justify-between hover:bg-surface-2 cursor-pointer transition-colors group"
                 >
                   <div className="flex items-center justify-between text-textSecondary mb-3">
-                    <span className="text-overline font-mono font-bold uppercase tracking-wider text-warning">Без ответа</span>
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-warning">Без ответа</span>
                     <MessageSquare className="w-4 h-4 text-warning" />
                   </div>
                   <div className="flex items-baseline justify-between">
                     <span className="text-heading-2 font-bold text-textPrimary font-mono">14</span>
-                    <span className="text-overline font-mono text-warning font-semibold">требуют ответа</span>
+                    <span className="text-[11px] font-mono text-warning font-semibold">требуют ответа</span>
                   </div>
                 </div>
 
@@ -954,7 +953,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                   className="p-5 flex flex-col justify-between hover:bg-surface-2 cursor-pointer transition-colors group"
                 >
                   <div className="flex items-center justify-between text-textSecondary mb-3">
-                    <span className="text-overline font-mono font-bold uppercase tracking-wider text-success">Баланс</span>
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-success">Баланс</span>
                     <Wallet className="w-4 h-4 text-success" />
                   </div>
                   <div className="flex items-baseline justify-between">
@@ -962,7 +961,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                       <span className="text-sm text-textTertiary">₽</span>
                       142,500
                     </span>
-                    <span className="text-overline font-mono text-success font-medium">доступно</span>
+                    <span className="text-[11px] font-mono text-success font-medium">доступно</span>
                   </div>
                 </div>
               </div>
@@ -1011,13 +1010,13 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                 <p className="text-xs text-textSecondary">{item.subtitle}</p>
                               </div>
                             </div>
-                            <Button 
+                            <button 
                               onClick={() => handleResolveAttention(item)}
                               className="self-end sm:self-auto shrink-0 px-3.5 py-1.5 bg-surface-0 hover:bg-surface-3 border border-borderDef text-xs font-semibold text-textPrimary rounded-control flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm"
                             >
                               <span>{item.actionLabel}</span>
                               <ArrowRight className="w-3.5 h-3.5 text-textSecondary" />
-                            </Button>
+                            </button>
                           </div>
                         );
                       })}
@@ -1081,7 +1080,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                   <div className="flex flex-col gap-4 mt-4">
                     <div className="flex items-center justify-between">
                       <h2 className="text-heading-3 font-bold tracking-tight text-textPrimary">Активные проекты</h2>
-                      <Button variant="ghost" size="sm" onClick={() => setActiveNav('projects')} className="gap-1 min-h-0">Все проекты <ArrowRight className="w-3.5 h-3.5" /></Button>
+                      <button onClick={() => setActiveNav('projects')} className="text-xs font-mono text-textSecondary hover:text-textPrimary transition-colors flex items-center gap-1">Все проекты <ArrowRight className="w-3.5 h-3.5" /></button>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {filteredGames.slice(0, 4).map(game => (
@@ -1147,7 +1146,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                   <p className="text-xs text-textSecondary leading-relaxed">{ev.description}</p>
                                 </div>
                               </div>
-                              <span className="text-overline font-mono text-textTertiary whitespace-nowrap shrink-0">{ev.timestamp}</span>
+                              <span className="text-[11px] font-mono text-textTertiary whitespace-nowrap shrink-0">{ev.timestamp}</span>
                             </div>
                           );
                         })
@@ -1162,13 +1161,13 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                   
                   {/* Быстрые действия (Главные кнопки) */}
                   <div className="flex flex-col gap-3">
-                    <Button 
+                    <button 
                       onClick={() => triggerToast('В разработке')}
                       className="w-full h-11 bg-accent hover:bg-accent-hover-hover text-white font-bold text-sm rounded-card transition-colors flex items-center justify-center gap-2 shadow-elevation-raised shadow-accent/20"
                     >
                       <Plus className="w-4 h-4 stroke-[2.5]" /> Создать проект
-                    </Button>
-                    <Button 
+                    </button>
+                    <button 
                       onClick={() => {
                         if ((window as any).__hubigrNavigate) (window as any).__hubigrNavigate('/devlogs/new');
                         else window.location.href = '#/devlogs/new';
@@ -1176,7 +1175,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                       className="w-full h-11 bg-surface-1 hover:bg-surface-2 border border-borderDef text-textPrimary font-semibold text-sm rounded-card transition-colors flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Edit3 className="w-4 h-4 text-textSecondary" /> Написать девлог
-                    </Button>
+                    </button>
                   </div>
 
                   {/* Аналитика Сводка */}
@@ -1203,9 +1202,9 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                           <span className="font-mono font-bold text-textPrimary">12.4k</span>
                         </div>
                       </div>
-                      <Button variant="secondary" fullWidth onClick={() => setActiveNav('analytics')} className="mt-2 min-h-0">
+                      <button onClick={() => setActiveNav('analytics')} className="w-full mt-2 py-2 text-xs font-semibold text-textSecondary hover:text-textPrimary bg-surface-2 hover:bg-surface-3 rounded-control transition-colors">
                         Подробный отчет
-                      </Button>
+                      </button>
                     </div>
                   </div>
 
@@ -1244,12 +1243,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                         className="w-full h-10 bg-surface-2 border border-borderDef focus:border-accent text-textPrimary text-xs font-sans rounded-md pl-10 pr-10 outline-none transition-colors"
                       />
                       {gamesSearchQuery && (
-                        <Button 
+                        <button 
                           onClick={() => setGamesSearchQuery('')}
                           className="absolute right-3 top-1/2 -translate-y-1/2 text-textSecondary hover:text-textPrimary transition-colors"
                         >
                           <X className="w-4 h-4" />
-                        </Button>
+                        </button>
                       )}
                     </div>
 
@@ -1283,7 +1282,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
 
                       {/* Primary CTA Button (Scope Permission Protected) */}
                       {scopeInfo.canManageGames && (
-                        <Button 
+                        <button 
                           onClick={() => { 
                             if (publishingRestricted) {
                               triggerToast('Публикация и создание проектов приостановлены модерацией (дело #RES-PUB-8041)', 'warning');
@@ -1299,11 +1298,11 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                         >
                           <Plus className="w-4 h-4 stroke-[2.5]" />
                           <span>Создать игру</span>
-                        </Button>
+                        </button>
                       )}
 
                       {/* Game Transfers Center Button (FE-ACC-007) */}
-                      <Button 
+                      <button 
                         onClick={() => setIsTransfersDrawerOpen(true)}
                         className="shrink-0 h-10 px-4 bg-surface-1 hover:bg-surface-2 border border-borderDef hover:border-accent/40 text-textPrimary font-semibold text-xs rounded-md transition-colors flex items-center justify-center gap-2 cursor-pointer relative"
                         title="Центр трансферов прав на игры"
@@ -1315,7 +1314,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                             {incomingPendingCount}
                           </span>
                         )}
-                      </Button>
+                      </button>
                     </div>
                   </div>
 
@@ -1328,7 +1327,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                       { id: 'unlisted', label: 'По ссылке' },
                       { id: 'jam', label: 'Джем-версии' }
                     ].map(tab => (
-                      <Button
+                      <button
                         key={tab.id}
                         onClick={() => setGamesVisibilityFilter(tab.id)}
                         className={`px-3.5 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer outline-none whitespace-nowrap ${
@@ -1338,7 +1337,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                         }`}
                       >
                         {tab.label}
-                      </Button>
+                      </button>
                     ))}
                   </div>
 
@@ -1367,12 +1366,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                       <h3 className="text-body-lg font-bold text-textPrimary">Проекты не найдены</h3>
                       <p className="text-xs text-textSecondary">По вашему запросу ничего не найдено. Попробуйте изменить параметры фильтрации или сбросить поиск.</p>
                     </div>
-                    <Button 
+                    <button 
                       onClick={() => { setGamesSearchQuery(''); setGamesVisibilityFilter('all'); setGamesStatusFilter('all'); }}
                       className="h-9 px-4 bg-surface-1 hover:bg-surface-2 border border-borderDef text-xs font-semibold text-textPrimary rounded-md transition-colors mt-2"
                     >
                       Сбросить все фильтры
-                    </Button>
+                    </button>
                   </div>
                 ) : (
 /* Actual Games Cards Grid (New Horizontal Layout) */
@@ -1474,45 +1473,45 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                               <div className="flex flex-wrap justify-end gap-2 shrink-0 max-w-[200px]">
                                 {/* Visibility & Moderation */}
                                 {isDraft ? (
-                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-overline font-mono bg-surface-2 text-textSecondary border border-borderDef" title="Проект виден только автору">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono bg-surface-2 text-textSecondary border border-borderDef" title="Проект виден только автору">
                                     <Edit3 className="w-3 h-3" /> Черновик
                                   </div>
                                 ) : isUnlisted ? (
-                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-overline font-mono bg-warning/10 text-warning border border-warning/20" title="Доступ только по ссылке">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono bg-warning/10 text-warning border border-warning/20" title="Доступ только по ссылке">
                                     <ExternalLink className="w-3 h-3" /> По ссылке
                                   </div>
                                 ) : isPublic && modStatus === 'approved' ? (
-                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-overline font-mono bg-success/10 text-success border border-success/20" title="Опубликован">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono bg-success/10 text-success border border-success/20" title="Опубликован">
                                     <Eye className="w-3 h-3" /> Опубликовано
                                   </div>
                                 ) : modStatus === 'pending' ? (
-                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-overline font-mono bg-warning/10 text-warning border border-warning/20" title="Проверяется модерацией">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono bg-warning/10 text-warning border border-warning/20" title="Проверяется модерацией">
                                     <Clock className="w-3 h-3" /> На проверке
                                   </div>
                                 ) : (
-                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-overline font-mono bg-surface-2 text-textSecondary border border-borderDef">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono bg-surface-2 text-textSecondary border border-borderDef">
                                     <Archive className="w-3 h-3" /> В архиве
                                   </div>
                                 )}
                                 
                                 {/* Monetization */}
                                 {monetizationType === 'free' ? (
-                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-overline font-mono bg-surface-2/60 text-textSecondary border border-borderDef">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono bg-surface-2/60 text-textSecondary border border-borderDef">
                                     <Tag className="w-3 h-3" /> Бесплатно
                                   </div>
                                 ) : monetizationType === 'pwyw' ? (
-                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-overline font-mono bg-info/10 text-info border border-info/20">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono bg-info/10 text-info border border-info/20">
                                     <HeartHandshake className="w-3 h-3" /> PWYW
                                   </div>
                                 ) : (
-                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-overline font-mono bg-accent/10 text-accent border border-accent/20">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono bg-accent/10 text-accent border border-accent/20">
                                     <DollarSign className="w-3 h-3" /> Платная
                                   </div>
                                 )}
                                 
                                 {/* Jam Context */}
                                 {isJam && (
-                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-overline font-mono bg-reaction/10 text-reaction border border-reaction/20">
+                                  <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-mono bg-reaction/10 text-reaction border border-reaction/20">
                                     <Trophy className="w-3 h-3" /> Game Jam Entry
                                   </div>
                                 )}
@@ -1570,24 +1569,24 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                             <div className="mt-4 pt-4 border-t border-borderDef flex items-center justify-between gap-3 flex-wrap">
                               <div className="flex items-center gap-2">
                                 {/* Upload Build */}
-                                <Button 
+                                <button 
                                   disabled={!scopeInfo.canManageGames}
                                   onClick={() => { setQuickUploadGame(game); triggerToast('Открытие FastBuildUploadModal'); }}
                                   className={`h-8 px-3 text-xs font-semibold rounded-md border flex items-center gap-1.5 transition-colors ${!scopeInfo.canManageGames ? 'bg-surface-2 border-borderDef text-borderStrong cursor-not-allowed' : 'bg-surface-1 border-borderDef hover:bg-surface-2 text-textPrimary'}`}
                                   title={!scopeInfo.canManageGames ? 'Требуется право game.manage для загрузки файлов' : 'Быстрая загрузка билда'}
                                 >
                                   <UploadCloud className="w-3.5 h-3.5" /> Загрузить билд
-                                </Button>
+                                </button>
                                 
                                 {/* Edit */}
-                                <Button 
+                                <button 
                                   disabled={!scopeInfo.canManageGames}
                                   onClick={() => { if ((window as any).__hubigrNavigate) (window as any).__hubigrNavigate('/game-editor/' + game.id); }}
                                   className={`h-8 px-3 text-xs font-semibold rounded-md flex items-center gap-1.5 transition-colors ${!scopeInfo.canManageGames ? 'bg-surface-2 border-borderDef text-borderStrong cursor-not-allowed' : 'bg-accent hover:bg-accent-hover-hover text-white border border-transparent shadow-sm'}`}
                                   title={!scopeInfo.canManageGames ? 'У вас нет прав на редактирование игр команды' : 'Редактировать'}
                                 >
                                   <Pencil className="w-3.5 h-3.5" /> Редактировать
-                                </Button>
+                                </button>
                               </div>
                               
                               <div className="flex items-center gap-2 ml-auto">
@@ -1611,35 +1610,35 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                 {/* Context Menu */}
                                 {scopeInfo.canManageGames && (
                                   <div className="relative game-card-context-menu">
-                                    <Button 
+                                    <button 
                                       onClick={() => setActiveGameContextMenu(activeGameContextMenu === game.id ? null : game.id)}
                                       className="w-8 h-8 rounded-md bg-surface-1 hover:bg-surface-2 border border-borderDef flex items-center justify-center text-textSecondary hover:text-textPrimary transition-colors"
                                     >
                                       <MoreVertical className="w-4 h-4" />
-                                    </Button>
+                                    </button>
                                     
                                     {activeGameContextMenu === game.id && (
                                       <div className="absolute bottom-full mb-2 right-0 w-56 bg-surface-2/95 backdrop-blur-xl border border-borderDef shadow-elevation-overlay rounded-card p-1.5 font-sans text-xs animate-fadeIn space-y-0.5 z-50">
-                                        <Button variant="ghost" fullWidth className="justify-start gap-2.5 px-3.5 py-2.5"><ExternalLink className="w-3.5 h-3.5 text-textSecondary"/> Открыть публичную страницу</Button>
-                                        <Button variant="ghost" fullWidth className="justify-start gap-2.5 px-3.5 py-2.5"><Layers className="w-3.5 h-3.5 text-textSecondary"/> История версий и билдов</Button>
-                                        <Button onClick={() => { setActiveGameContextMenu(null); if ((window as any).__hubigrNavigate) (window as any).__hubigrNavigate('/devlogs/new?gameId=' + game.id); else window.location.href = '#/devlogs/new?gameId=' + game.id; }} className="w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"><BookOpen className="w-3.5 h-3.5 text-textSecondary"/> Написать DevLog по этой игре</Button>
-                                        <Button variant="ghost" fullWidth className="justify-start gap-2.5 px-3.5 py-2.5"><Bug className="w-3.5 h-3.5 text-textSecondary"/> Баг-репорты игры ({bugsCount})</Button>
-                                        <Button disabled={!scopeInfo.canViewStats} onClick={() => { setActiveGameContextMenu(null); setActiveNav('analytics'); }} className={`w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 ${!scopeInfo.canViewStats ? "text-textTertiary opacity-50 cursor-not-allowed" : "cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"}`} title={!scopeInfo.canViewStats ? 'Просмотр статистики ограничен (требуется право stats.view)' : 'Перейти в аналитику'}><BarChart2 className="w-3.5 h-3.5 text-textSecondary"/> Аналитика и конверсии</Button>
+                                        <button className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"><ExternalLink className="w-3.5 h-3.5 text-textSecondary"/> Открыть публичную страницу</button>
+                                        <button className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"><Layers className="w-3.5 h-3.5 text-textSecondary"/> История версий и билдов</button>
+                                        <button onClick={() => { setActiveGameContextMenu(null); if ((window as any).__hubigrNavigate) (window as any).__hubigrNavigate('/devlogs/new?gameId=' + game.id); else window.location.href = '#/devlogs/new?gameId=' + game.id; }} className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"><BookOpen className="w-3.5 h-3.5 text-textSecondary"/> Написать DevLog по этой игре</button>
+                                        <button className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"><Bug className="w-3.5 h-3.5 text-textSecondary"/> Баг-репорты игры ({bugsCount})</button>
+                                        <button disabled={!scopeInfo.canViewStats} onClick={() => { setActiveGameContextMenu(null); setActiveNav('analytics'); }} className={`w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 ${!scopeInfo.canViewStats ? "text-textTertiary opacity-50 cursor-not-allowed" : "cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"}`} title={!scopeInfo.canViewStats ? 'Просмотр статистики ограничен (требуется право stats.view)' : 'Перейти в аналитику'}><BarChart2 className="w-3.5 h-3.5 text-textSecondary"/> Аналитика и конверсии</button>
                                         <div className="h-px w-full bg-borderDef my-1.5 opacity-50" />
-                                        <Button 
+                                        <button 
                                           onClick={() => {
                                             setActiveGameContextMenu(null);
                                             setGameForTransfer(game);
                                           }}
-                                          className="w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"
+                                          className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"
                                         >
                                           <ArrowRightLeft className="w-3.5 h-3.5 text-textSecondary"/> Передать владение
-                                        </Button>
-                                        <Button variant="ghost" fullWidth className="justify-start gap-2.5 px-3.5 py-2.5"><Archive className="w-3.5 h-3.5 text-textSecondary"/> Перенести в архив</Button>
+                                        </button>
+                                        <button className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3"><Archive className="w-3.5 h-3.5 text-textSecondary"/> Перенести в архив</button>
                                         {true && (
                                           <>
                                             <div className="h-px w-full bg-borderDef my-1.5 opacity-50" />
-                                            <Button onClick={() => { setActiveGameContextMenu(null); triggerToast('Вызван модал удаления', 'error'); }} className="w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-danger hover:bg-danger/10 active:bg-danger/20"><Trash2 className="w-3.5 h-3.5"/> Удалить игру</Button>
+                                            <button onClick={() => { setActiveGameContextMenu(null); triggerToast('Вызван модал удаления', 'error'); }} className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-danger hover:bg-danger/10 active:bg-danger/20"><Trash2 className="w-3.5 h-3.5"/> Удалить игру</button>
                                           </>
                                         )}
                                       </div>
@@ -1660,7 +1659,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                     <div className="flex items-center gap-3 text-textSecondary">
                       <span>Показывать:</span>
                       {[12, 24, 48].map(num => (
-                        <Button
+                        <button
                           key={num}
                           onClick={() => setGamesItemsPerPage(num)}
                           className={`px-2 py-1 rounded transition-colors ${
@@ -1668,24 +1667,24 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                           }`}
                         >
                           {num}
-                        </Button>
+                        </button>
                       ))}
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <Button 
+                      <button 
                         onClick={() => {}}
                         className="h-9 px-4 bg-surface-1 hover:bg-surface-2 border border-borderDef text-xs font-semibold text-textPrimary rounded-md transition-colors flex items-center gap-1.5"
                       >
                         <span>Показать еще</span>
                         <ChevronDown className="w-3.5 h-3.5 text-textSecondary" />
-                      </Button>
+                      </button>
                     </div>
 
                     <div className="flex items-center gap-1.5 text-xs font-mono">
-                      <Button variant="outline" size="sm" disabled className="px-3 py-1 min-h-0">Назад</Button>
-                      <Button variant="primary" size="sm" className="px-3 py-1 min-h-0">1</Button>
-                      <Button variant="outline" size="sm" disabled className="px-3 py-1 min-h-0">Вперед</Button>
+                      <button disabled className="px-3 py-1 bg-surface-2 border border-borderDef text-borderStrong rounded opacity-50 cursor-not-allowed">Назад</button>
+                      <button className="px-3 py-1 bg-accent text-white font-bold rounded">1</button>
+                      <button disabled className="px-3 py-1 bg-surface-2 border border-borderDef text-borderStrong rounded opacity-50 cursor-not-allowed">Вперед</button>
                     </div>
                   </div>
                 )}
@@ -1722,9 +1721,9 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                         className="w-full h-10 bg-surface-2 border border-borderDef focus:border-accent text-textPrimary text-xs font-sans rounded-md pl-10 pr-10 outline-none transition-colors"
                       />
                       {devlogQuery && (
-                        <Button variant="ghost" size="sm" className="absolute right-1 top-1/2 -translate-y-1/2 p-1 min-w-0 min-h-0" onClick={() => setDevlogQuery('')}>
+                        <button onClick={() => setDevlogQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-textSecondary hover:text-textPrimary transition-colors">
                           <X className="w-4 h-4" />
-                        </Button>
+                        </button>
                       )}
                     </div>
 
@@ -1769,7 +1768,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
 
                       {/* CTA Button */}
                       {scopeInfo.canManageDevlog && (
-                        <Button 
+                        <button 
                           onClick={() => {
                             if ((window as any).__hubigrNavigate) (window as any).__hubigrNavigate('/devlogs/new');
                             else window.location.href = '#/devlogs/new';
@@ -1778,7 +1777,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                         >
                           <Plus className="w-4 h-4 stroke-[2.5]" />
                           <span>Написать пост</span>
-                        </Button>
+                        </button>
                       )}
 
                     </div>
@@ -1794,7 +1793,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                       { id: 'blocked', label: 'Заблокированные' },
                       { id: 'archived', label: 'В архиве' }
                     ].map(tab => (
-                      <Button
+                      <button
                         key={tab.id}
                         onClick={() => setDevlogStatusTab(tab.id)}
                         className={`px-3.5 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer outline-none whitespace-nowrap ${
@@ -1804,7 +1803,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                         }`}
                       >
                         {tab.label}
-                      </Button>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -1829,7 +1828,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                       <h3 className="text-base font-bold text-textPrimary">Записи не найдены</h3>
                       <p className="text-xs text-textSecondary">По вашему запросу или выбранным фильтрам ничего не найдено.</p>
                     </div>
-                    <Button 
+                    <button 
                       onClick={() => {
                         setDevlogQuery('');
                         setDevlogStatusTab('all');
@@ -1839,7 +1838,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                       className="h-9 px-4 bg-surface-1 hover:bg-surface-2 border border-borderDef text-xs font-semibold text-textPrimary rounded-md transition-colors"
                     >
                       Сбросить все фильтры
-                    </Button>
+                    </button>
                   </div>
                 ) : (
                   <div className="flex flex-col gap-3">
@@ -1889,7 +1888,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                 </div>
                                 
                                 {/* Status Badges */}
-                                <div className="flex items-center gap-2 text-overline font-bold uppercase tracking-wider font-mono shrink-0">
+                                <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider font-mono shrink-0">
                                   {devlog.status === 'published' && (
                                     <span className="bg-success/10 text-success border border-success/20 px-2 py-0.5 rounded">
                                       Опубликовано
@@ -1906,12 +1905,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                     </span>
                                   )}
                                   {devlog.status === 'blocked' && (
-                                    <Button 
+                                    <button 
                                       onClick={() => setModerationModal(devlog)}
                                       className="bg-danger/10 text-danger border border-danger/20 px-2 py-0.5 rounded flex items-center gap-1 hover:bg-danger/20 transition-colors cursor-pointer"
                                     >
                                       <ShieldAlert className="w-3 h-3" /> Заблокировано
-                                    </Button>
+                                    </button>
                                   )}
                                 </div>
                               </div>
@@ -1940,13 +1939,13 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                 <span className="flex items-center gap-1.5" title="Комментарии">
                                   <MessageSquare className="w-4 h-4 text-info/80" /> {devlog.comments}
                                 </span>
-                                <span className="hidden sm:inline text-textTertiary text-overline ml-2 font-mono">Обновлено: {devlog.updatedAt}</span>
+                                <span className="hidden sm:inline text-textTertiary text-[11px] ml-2 font-mono">Обновлено: {devlog.updatedAt}</span>
                               </div>
 
                               {/* Actions */}
                               <div className="flex items-center gap-2 shrink-0 ml-auto">
                                 {isOwner && (
-                                  <Button 
+                                  <button 
                                     onClick={() => {
                                       if ((window as any).__hubigrNavigate) (window as any).__hubigrNavigate(`/devlog-editor?id=${devlog.id}`);
                                       else window.location.href = `#/devlog-editor?id=${devlog.id}`;
@@ -1955,53 +1954,53 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                   >
                                     <Edit3 className="w-3.5 h-3.5 text-textSecondary" />
                                     <span>Редактировать</span>
-                                  </Button>
+                                  </button>
                                 )}
                                 
                                 {isOwner && (
                                   <div className="relative">
-                                    <Button 
+                                    <button 
                                       onClick={() => setActiveDevlogContextMenu(activeDevlogContextMenu === devlog.id ? null : devlog.id)}
                                       className="h-8 w-8 bg-surface-1 hover:bg-surface-2 border border-borderDef text-textSecondary hover:text-textPrimary rounded-md flex items-center justify-center transition-colors shadow-sm"
                                     >
                                       <MoreVertical className="w-4 h-4" />
-                                    </Button>
+                                    </button>
 
                                     {activeDevlogContextMenu === devlog.id && (
                                       <div className="absolute right-0 top-full mt-2 w-56 bg-surface-2/95 backdrop-blur-xl border border-borderDef shadow-elevation-overlay rounded-card p-1.5 font-sans text-xs animate-fadeIn space-y-0.5 z-50">
                                         
                                         {devlog.status === 'draft' && (
-                                          <Button 
+                                          <button 
                                             onClick={() => handlePublishNow(devlog)}
-                                            className="w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-success hover:bg-success/10 active:bg-success/20 font-medium"
+                                            className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-success hover:bg-success/10 active:bg-success/20 font-medium"
                                           >
                                             <Send className="w-4 h-4 text-success" /> Опубликовать сейчас
-                                          </Button>
+                                          </button>
                                         )}
                                         {devlog.status === 'published' && (
-                                          <Button 
+                                          <button 
                                             onClick={() => handleUnpublish(devlog)}
-                                            className="w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3 font-medium"
+                                            className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3 font-medium"
                                           >
                                             <XCircle className="w-4 h-4 text-textTertiary" /> Перевести в черновик
-                                          </Button>
+                                          </button>
                                         )}
-                                        <Button 
+                                        <button 
                                           onClick={() => handleDuplicate(devlog)}
-                                          className="w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3 font-medium"
+                                          className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-textSecondary hover:text-textPrimary hover:bg-surface-3/80 active:bg-surface-3 font-medium"
                                         >
                                           <Copy className="w-4 h-4 text-textTertiary" /> Создать копию
-                                        </Button>
+                                        </button>
                                         <div className="h-px w-full bg-borderDef my-1.5 opacity-50" />
-                                        <Button 
+                                        <button 
                                           onClick={() => {
                                             setDeleteDevlogModal(devlog);
                                             setActiveDevlogContextMenu(null);
                                           }}
-                                          className="w-full text-left px-3.5 py-2.5 min-h-10 rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-danger hover:bg-danger/10 active:bg-danger/20 font-medium"
+                                          className="w-full text-left px-3.5 py-2.5 min-h-[38px] rounded-control flex items-center gap-2.5 transition-all duration-120 cursor-pointer text-danger hover:bg-danger/10 active:bg-danger/20 font-medium"
                                         >
                                           <Trash2 className="w-4 h-4" /> Удалить запись
-                                        </Button>
+                                        </button>
                                       </div>
                                     )}
                                   </div>
@@ -2021,7 +2020,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                     <div className="flex items-center gap-3 text-textSecondary">
                       <span>Показывать:</span>
                       {[10, 20, 50].map(num => (
-                        <Button
+                        <button
                           key={num}
                           onClick={() => setDevlogPerPage(num)}
                           className={`px-2 py-1 rounded transition-colors ${
@@ -2029,24 +2028,24 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                           }`}
                         >
                           {num}
-                        </Button>
+                        </button>
                       ))}
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <Button 
+                      <button 
                         onClick={() => {}}
                         className="h-9 px-4 bg-surface-1 hover:bg-surface-2 border border-borderDef text-xs font-semibold text-textPrimary font-sans rounded-md transition-colors flex items-center gap-1.5"
                       >
                         <span>Показать еще</span>
                         <ChevronDown className="w-3.5 h-3.5 text-textSecondary" />
-                      </Button>
+                      </button>
                     </div>
 
                     <div className="flex items-center gap-1.5">
-                      <Button variant="outline" size="sm" disabled className="px-3 py-1 min-h-0">Назад</Button>
-                      <Button variant="primary" size="sm" className="px-3 py-1 min-h-0">1</Button>
-                      <Button variant="outline" size="sm" disabled className="px-3 py-1 min-h-0">Вперед</Button>
+                      <button disabled className="px-3 py-1 bg-surface-2 border border-borderDef text-borderStrong rounded opacity-50 cursor-not-allowed">Назад</button>
+                      <button className="px-3 py-1 bg-accent text-white font-bold rounded">1</button>
+                      <button disabled className="px-3 py-1 bg-surface-2 border border-borderDef text-borderStrong rounded opacity-50 cursor-not-allowed">Вперед</button>
                     </div>
                   </div>
                 )}
@@ -2060,7 +2059,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
 
                 {/* Sub-tabs Domain Selector */}
                 <div className="flex items-center gap-3 border-b border-borderDef pb-3">
-                  <Button
+                  <button
                     onClick={() => setCommunityDomainSubTab('reviews')}
                     className={`px-4 py-2 rounded-md text-xs font-semibold font-mono transition-colors flex items-center gap-2 cursor-pointer outline-none ${
                       communityDomainSubTab === 'reviews' 
@@ -2073,9 +2072,9 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                     <span className="ml-1 px-1.5 py-0.2 bg-surface-1 rounded text-xs text-textPrimary">
                       {reviewsList.filter(i => scope === 'all' || i.scope === scope).length}
                     </span>
-                  </Button>
+                  </button>
 
-                  <Button
+                  <button
                     onClick={() => setCommunityDomainSubTab('feedback')}
                     className={`px-4 py-2 rounded-md text-xs font-semibold font-mono transition-colors flex items-center gap-2 cursor-pointer outline-none ${
                       communityDomainSubTab === 'feedback' 
@@ -2088,7 +2087,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                     <span className="ml-1 px-1.5 py-0.2 bg-surface-1 rounded text-xs text-textPrimary">
                       {feedbackList.filter(i => scope === 'all' || i.scope === scope).length}
                     </span>
-                  </Button>
+                  </button>
                 </div>
 
                 {/* Toolbar & Filters */}
@@ -2106,12 +2105,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                         className="w-full bg-surface-2 border border-borderDef text-textPrimary text-xs pl-9 pr-8 py-2.5 rounded-md focus:border-accent outline-none placeholder-textTertiary"
                       />
                       {communitySearchQuery && (
-                        <Button 
+                        <button 
                           onClick={() => setCommunitySearchQuery('')}
                           className="absolute right-3 top-1/2 -translate-y-1/2 text-textSecondary hover:text-textPrimary"
                         >
                           <X className="w-3.5 h-3.5" />
-                        </Button>
+                        </button>
                       )}
                     </div>
 
@@ -2169,7 +2168,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                         { id: 'answered', label: 'С ответом' },
                         { id: 'critical', label: 'Критические ★1-2' }
                       ].map(tab => (
-                        <Button
+                        <button
                           key={tab.id}
                           onClick={() => setCommunityResponseStatus(tab.id)}
                           className={`px-3 py-1.5 rounded text-xs font-mono transition-colors cursor-pointer outline-none whitespace-nowrap ${
@@ -2179,7 +2178,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                           }`}
                         >
                           {tab.label}
-                        </Button>
+                        </button>
                       ))}
                     </div>
                   )}
@@ -2240,7 +2239,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                               <img src={review.userAvatar} alt={review.userNick} className="w-8 h-8 rounded-full bg-surface-2 border border-borderDef object-cover shrink-0" />
                               <div className="flex flex-col">
                                 <span className="text-sm font-bold text-textPrimary leading-none">@{review.userNick}</span>
-                                <span className="text-overline font-mono text-textTertiary mt-1">{review.createdAt}</span>
+                                <span className="text-[11px] font-mono text-textTertiary mt-1">{review.createdAt}</span>
                               </div>
                             </div>
                             
@@ -2252,13 +2251,13 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                 {renderStarRating(review.rating)}
                               </div>
                               {/* Report Action */}
-                              <Button
+                              <button
                                 onClick={() => setReportTargetReview(review)}
                                 className="w-7 h-7 text-textTertiary hover:text-danger hover:bg-danger/10 rounded-md transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 cursor-pointer"
                                 title="Пожаловаться на отзыв"
                               >
                                 <Flag className="w-3.5 h-3.5" />
-                              </Button>
+                              </button>
                             </div>
                           </div>
 
@@ -2276,12 +2275,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                     <CornerDownRight className="w-3.5 h-3.5 text-accent" />
                                   </div>
                                   <span>Ответ разработчика ({review.officialResponse.authorName})</span>
-                                  <span className="text-overline font-mono text-textTertiary font-normal ml-2">{review.officialResponse.updatedAt}</span>
+                                  <span className="text-[11px] font-mono text-textTertiary font-normal ml-2">{review.officialResponse.updatedAt}</span>
                                 </div>
                                 {scopeInfo.canManageReviews && (
                                   <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <Button variant="ghost" size="sm" className="px-1.5 py-1.5 min-w-0 min-h-0" onClick={() => handleOpenInlineEditor(review)}><Edit3 className="w-3.5 h-3.5" /></Button>
-                                    <Button variant="ghost" size="sm" className="px-1.5 py-1.5 min-w-0 min-h-0 hover:bg-danger/10 hover:text-danger" onClick={() => setDeleteTargetReview(review)}><Trash2 className="w-3.5 h-3.5" /></Button>
+                                    <button onClick={() => handleOpenInlineEditor(review)} className="p-1.5 text-textSecondary hover:text-textPrimary hover:bg-surface-3 rounded-md transition-colors"><Edit3 className="w-3.5 h-3.5" /></button>
+                                    <button onClick={() => setDeleteTargetReview(review)} className="p-1.5 text-textSecondary hover:text-danger hover:bg-danger/10 rounded-md transition-colors"><Trash2 className="w-3.5 h-3.5" /></button>
                                   </div>
                                 )}
                               </div>
@@ -2295,7 +2294,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                 <span className="text-xs font-bold text-textPrimary flex items-center gap-1.5">
                                   <CornerDownRight className="w-4 h-4 text-accent" /> Написать официальный ответ
                                 </span>
-                                <span className="text-overline font-mono text-textTertiary">Правило M8: 1 ответ на отзыв</span>
+                                <span className="text-[11px] font-mono text-textTertiary">Правило M8: 1 ответ на отзыв</span>
                               </div>
                               <textarea
                                 value={responseText}
@@ -2306,19 +2305,22 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                                 className="w-full bg-surface-1 border border-borderDef focus:border-accent text-textPrimary text-sm p-3 rounded-control outline-none resize-none placeholder-textTertiary transition-colors"
                               />
                               <div className="flex items-center justify-between pt-3">
-                                <span className="text-overline font-mono text-textSecondary">{responseText.length}/1000 символов</span>
+                                <span className="text-[11px] font-mono text-textSecondary">{responseText.length}/1000 символов</span>
                                 <div className="flex items-center gap-2">
-                                  <Button onClick={() => { setEditingResponseId(null); setResponseText(''); }} className="h-8 px-4 text-xs font-semibold text-textSecondary hover:text-textPrimary rounded-md hover:bg-surface-3 transition-colors cursor-pointer">Отмена</Button>
-                                  <Button variant="primary" size="sm" disabled={!responseText.trim()} onClick={() => handleSaveResponse(review.id)}><Send className="w-3.5 h-3.5" /> Опубликовать</Button>
+                                  <button onClick={() => { setEditingResponseId(null); setResponseText(''); }} className="h-8 px-4 text-xs font-semibold text-textSecondary hover:text-textPrimary rounded-md hover:bg-surface-3 transition-colors cursor-pointer">Отмена</button>
+                                  <button onClick={() => handleSaveResponse(review.id)} disabled={!responseText.trim()} className="h-8 px-4 bg-accent hover:bg-accent-hover-hover disabled:opacity-50 text-white text-xs font-bold rounded-md transition-colors flex items-center gap-1.5 shadow-sm cursor-pointer"><Send className="w-3.5 h-3.5" /> Опубликовать</button>
                                 </div>
                               </div>
                             </div>
                           ) : (
                             scopeInfo.canManageReviews ? (
                               <div className="bg-surface-2/30 border-t border-borderDef p-3 px-4 flex items-center justify-between">
-                                <Button variant="ghost" size="sm" onClick={() => handleOpenInlineEditor(review)} className="text-accent hover:text-accent-hover-hover gap-1.5">
+                                <button
+                                  onClick={() => handleOpenInlineEditor(review)}
+                                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-accent-hover-hover transition-colors cursor-pointer"
+                                >
                                   <CornerDownRight className="w-3.5 h-3.5" /> Ответить от имени разработчика
-                                </Button>
+                                </button>
                               </div>
                             ) : null
                           )}
@@ -2372,7 +2374,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                               <img src={fb.userAvatar} alt={fb.userNick} className="w-8 h-8 rounded-full bg-surface-2 border border-borderDef object-cover shrink-0" />
                               <div className="flex flex-col">
                                 <span className="text-sm font-bold text-textPrimary leading-none">@{fb.userNick}</span>
-                                <span className="text-overline font-mono text-textTertiary mt-1">{fb.createdAt} • {fb.playtime} в игре</span>
+                                <span className="text-[11px] font-mono text-textTertiary mt-1">{fb.createdAt} • {fb.playtime} в игре</span>
                               </div>
                             </div>
                             
@@ -2380,7 +2382,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                               <div className="flex items-center gap-1.5 px-2 py-1 bg-surface-2 rounded-md border border-surface-3 text-xs font-medium text-textSecondary">
                                 <Gamepad2 className="w-3.5 h-3.5 text-accent" /> {fb.gameTitle}
                               </div>
-                              <span className="px-2 py-1 bg-info/10 text-info border border-info/20 rounded-md text-overline font-mono font-bold uppercase tracking-wider">
+                              <span className="px-2 py-1 bg-info/10 text-info border border-info/20 rounded-md text-[11px] font-mono font-bold uppercase tracking-wider">
                                 {fb.categoryLabel}
                               </span>
                               <a href="#" onClick={(e) => { e.preventDefault(); triggerToast(`Переход в тему ${fb.threadUrl}`); }} className="h-8 w-8 bg-surface-2 hover:bg-surface-3 border border-borderDef text-textSecondary hover:text-textPrimary rounded-md flex items-center justify-center transition-colors shadow-sm cursor-pointer" title="Перейти в тему обсуждения">
@@ -2417,31 +2419,31 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                   <div className="flex items-center gap-3 text-textSecondary">
                     <span>Показывать:</span>
                     {[10, 25, 50].map(sz => (
-                      <Button 
+                      <button 
                         key={sz}
                         className={`px-2 py-1 rounded transition-colors ${
                           sz === 10 ? 'bg-surface-1 text-accent font-bold border border-surface-3' : 'hover:text-textPrimary'
                         }`}
                       >
                         {sz}
-                      </Button>
+                      </button>
                     ))}
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Button 
+                    <button 
                       onClick={() => {}}
                       className="h-9 px-4 bg-surface-1 hover:bg-surface-2 border border-borderDef text-xs font-semibold text-textPrimary font-sans rounded-md transition-colors flex items-center gap-1.5"
                     >
                       <span>Показать еще</span>
                       <ChevronDown className="w-3.5 h-3.5 text-textSecondary" />
-                    </Button>
+                    </button>
                   </div>
 
                   <div className="flex items-center gap-1.5">
-                    <Button variant="outline" size="sm" disabled className="px-3 py-1 min-h-0">Назад</Button>
-                    <Button variant="primary" size="sm" className="px-3 py-1 min-h-0">1</Button>
-                    <Button variant="outline" size="sm" disabled className="px-3 py-1 min-h-0">Вперед</Button>
+                    <button disabled className="px-3 py-1 bg-surface-2 border border-borderDef text-borderStrong rounded opacity-50 cursor-not-allowed">Назад</button>
+                    <button className="px-3 py-1 bg-accent text-white font-bold rounded">1</button>
+                    <button disabled className="px-3 py-1 bg-surface-2 border border-borderDef text-borderStrong rounded opacity-50 cursor-not-allowed">Вперед</button>
                   </div>
                 </div>
 
@@ -2579,21 +2581,21 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
 
             {/* Modal Actions */}
             <div className="pt-4 border-t border-borderDef flex items-center justify-end gap-3">
-              <Button 
+              <button 
                 onClick={() => setQuickUploadGame(null)}
                 className="h-10 px-5 bg-surface-1 hover:bg-surface-2 border border-borderDef text-xs font-semibold text-textPrimary rounded-md transition-colors"
               >
                 Отмена
-              </Button>
+              </button>
 
-              <Button 
+              <button 
                 disabled={isUploadingFile}
                 onClick={handleSimulateBuildUpload}
                 className="h-10 px-6 bg-success hover:bg-success/90 text-white font-bold text-xs uppercase tracking-wider rounded-md transition-colors flex items-center gap-2"
               >
                 <Check className="w-4 h-4 stroke-[2.5]" />
                 <span>Загрузить файл</span>
-              </Button>
+              </button>
             </div>
           </div>
         </Modal>
@@ -2627,14 +2629,14 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
             </div>
 
             <div className="pt-4 border-t border-borderDef flex items-center justify-end gap-3">
-              <Button 
+              <button 
                 onClick={() => setDeleteGameModal(null)}
                 className="h-10 px-5 bg-surface-1 hover:bg-surface-2 border border-borderDef text-xs font-semibold text-textPrimary rounded-md transition-colors"
               >
                 Отмена
-              </Button>
+              </button>
 
-              <Button 
+              <button 
                 onClick={handleDeleteGame}
                 disabled={deleteConfirmationText.trim() !== deleteGameModal?.title}
                 className={`h-10 px-6 font-bold text-xs uppercase tracking-wider rounded-md transition-colors flex items-center gap-2 ${
@@ -2645,7 +2647,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
               >
                 <Trash2 className="w-4 h-4" />
                 <span>Удалить навсегда</span>
-              </Button>
+              </button>
             </div>
       </Modal>
 
@@ -2660,9 +2662,9 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
                   <Bug className="w-5 h-5 text-danger" />
                   <h3 className="text-body-lg font-bold text-textPrimary font-mono">#{selectedBugForDrawer.id}</h3>
                 </div>
-                <Button variant="ghost" size="sm" className="rounded-full px-1.5 py-1.5 min-w-0 min-h-0" onClick={() => setSelectedBugForDrawer(null)}>
+                <button onClick={() => setSelectedBugForDrawer(null)} className="p-1.5 hover:bg-surface-1 rounded-full text-textSecondary hover:text-textPrimary transition-colors focus:outline-none">
                   <X className="w-5 h-5" />
-                </Button>
+                </button>
               </div>
 
               <div className="flex flex-col gap-6 font-sans">
@@ -2686,12 +2688,12 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
             </div>
 
             <div className="pt-6 border-t border-borderDef flex items-center gap-3">
-              <Button 
+              <button 
                 onClick={() => setSelectedBugForDrawer(null)}
                 className="flex-1 h-11 bg-surface-2 border border-borderDef hover:bg-surface-1 text-sm font-semibold text-textPrimary rounded-md focus:outline-none transition-colors"
               >
                 Закрыть
-              </Button>
+              </button>
             </div>
           </div>
         </div>
@@ -2711,19 +2713,19 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
         </div>
 
         <div className="pt-4 border-t border-borderDef flex items-center justify-end gap-3">
-          <Button 
+          <button 
             onClick={() => setDeleteDevlogModal(null)}
             className="h-10 px-5 bg-surface-1 hover:bg-surface-2 border border-borderDef text-xs font-semibold text-textPrimary rounded-md transition-colors"
           >
             Отмена
-          </Button>
-          <Button 
+          </button>
+          <button 
             onClick={handleDeleteDevlog}
             className="h-10 px-6 bg-danger hover:bg-danger/90 text-textPrimary font-bold text-xs uppercase tracking-wider rounded-md transition-colors flex items-center gap-2"
           >
             <Trash2 className="w-4 h-4" />
             <span>Удалить навсегда</span>
-          </Button>
+          </button>
         </div>
       </Modal>
 
@@ -2743,13 +2745,13 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
         </div>
 
         <div className="pt-4 border-t border-borderDef flex items-center justify-end gap-3">
-          <Button 
+          <button 
             onClick={() => setModerationModal(null)}
             className="h-10 px-5 bg-surface-1 hover:bg-surface-2 border border-borderDef text-xs font-semibold text-textPrimary rounded-md transition-colors"
           >
             Закрыть
-          </Button>
-          <Button 
+          </button>
+          <button 
             onClick={() => {
               const id = moderationModal?.id;
               setModerationModal(null);
@@ -2760,7 +2762,7 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
           >
             <Edit3 className="w-4 h-4" />
             <span>Редактировать и подать апелляцию</span>
-          </Button>
+          </button>
         </div>
       </Modal>
 
@@ -2776,18 +2778,18 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
           Ваш ответ будет скрыт из карточки отзыва в публичном каталоге. Вы сможете написать новый ответ в любое время.
         </p>
         <div className="flex items-center justify-end gap-3 pt-4">
-          <Button 
+          <button 
             onClick={() => setDeleteTargetReview(null)}
             className="px-4 py-2 text-xs font-semibold text-textSecondary hover:text-textPrimary cursor-pointer"
           >
             Отмена
-          </Button>
-          <Button 
+          </button>
+          <button 
             onClick={handleDeleteResponseConfirm}
             className="px-4 py-2 bg-danger hover:bg-danger/90 text-textPrimary text-xs font-bold rounded-md transition-colors cursor-pointer"
           >
             Удалить ответ
-          </Button>
+          </button>
         </div>
       </Modal>
 
@@ -2824,19 +2826,19 @@ export default function CreatorDashboardPage({ initialTab }: { initialTab?: stri
           </div>
 
           <div className="flex items-center justify-end gap-3 pt-4 border-t border-borderDef">
-            <Button 
+            <button 
               type="button"
               onClick={() => setReportTargetReview(null)}
               className="px-4 py-2 text-xs font-semibold text-textSecondary hover:text-textPrimary cursor-pointer"
             >
               Отмена
-            </Button>
-            <Button 
+            </button>
+            <button 
               type="submit"
               className="px-4 py-2 bg-accent hover:bg-accent-hover-hover text-white text-xs font-bold rounded-md transition-colors cursor-pointer"
             >
               Отправить жалобу
-            </Button>
+            </button>
           </div>
         </form>
       </Modal>

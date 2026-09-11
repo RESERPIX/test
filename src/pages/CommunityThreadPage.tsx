@@ -25,7 +25,6 @@ import {
 } from '../data/communityMockData';
 import { CommunityThreadType, CommunityDiscussionState, CommunityThread } from '../types/community';
 import { CommunityComment } from '../types/communityComment';
-import Modal from '../components/ui/Modal';
 import Button from '../components/ui/Button';
 import DevMatrixPanel, { DevMatrixField } from '../components/DevMatrixPanel';
 import ScopedForbiddenNotice from '../components/ui/ScopedForbiddenNotice';
@@ -742,18 +741,18 @@ export default function CommunityThreadPage({
             {toast.type === 'warning' && <AlertTriangle className="w-4 h-4 shrink-0" />}
             {toast.type === 'info' && <Info className="w-4 h-4 shrink-0 text-accent" />}
             <span>{toast.message}</span>
-            <Button onClick={() => setToast(null)} className="ml-2 opacity-70 hover:opacity-100">
+            <button onClick={() => setToast(null)} className="ml-2 opacity-70 hover:opacity-100">
               <X className="w-3.5 h-3.5" />
-            </Button>
+            </button>
           </div>
         </div>
       )}
 
       {/* Breadcrumbs */}
       <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-textTertiary mb-8">
-        <Button onClick={() => onNavigate && onNavigate('/community')} className="hover:text-textPrimary transition-colors">Сообщество</Button>
+        <button onClick={() => onNavigate && onNavigate('/community')} className="hover:text-textPrimary transition-colors">Сообщество</button>
         <ChevronRight className="w-3 h-3" />
-        <Button className="hover:text-textPrimary transition-colors">{category?.name || 'Общее'}</Button>
+        <button className="hover:text-textPrimary transition-colors">{category?.name || 'Общее'}</button>
         <ChevronRight className="w-3 h-3" />
         <span className="text-textSecondary truncate max-w-[200px] sm:max-w-xs">{thread.title}</span>
       </div>
@@ -1050,7 +1049,7 @@ export default function CommunityThreadPage({
                   <div className="text-[11px] font-extrabold text-textTertiary uppercase tracking-widest mb-3">Платформы тестирования</div>
                   <div className="flex flex-col gap-2">
                     {thread.needFeedbackDetails.platform.map(p => (
-                       <div key={p} className="text-body-sm font-bold text-textPrimary">{p}</div>
+                       <div key={p} className="text-[14px] font-bold text-textPrimary">{p}</div>
                     ))}
                   </div>
                 </div>
@@ -1130,12 +1129,12 @@ export default function CommunityThreadPage({
                <p className="text-sm text-textSecondary line-clamp-2 leading-relaxed mb-4 flex-1">
                  {thread.shareReferenceDetails.sourcePreview}
                </p>
-               <Button 
+               <button 
                  onClick={() => triggerToast(`Переход к внешнему источнику: ${thread.shareReferenceDetails?.sourceUrl}`, 'info')}
                  className="text-[13px] font-extrabold text-accent hover:text-textPrimary transition-colors flex items-center gap-1.5 mt-auto self-start"
                >
                  Читать оригинал ↗
-               </Button>
+               </button>
              </div>
           </div>
         </div>
@@ -1236,41 +1235,44 @@ export default function CommunityThreadPage({
         {/* Author / Mod Action Controls */}
         {showAuthorActions && (
           <div className="flex items-center gap-3 text-xs font-bold text-textTertiary sm:ml-auto">
-             <Button 
+             <button 
                onClick={handleOpenThreadRevisions}
                className="hover:text-textPrimary transition-colors flex items-center gap-1"
                title="История правок темы"
              >
                <Clock className="w-3.5 h-3.5" /> История правок
-             </Button>
-             <Button 
+             </button>
+             <button 
                onClick={handleOpenCategoryModal}
                className="hover:text-textPrimary transition-colors flex items-center gap-1"
                title="Сменить категорию темы"
              >
                <FolderSync className="w-3.5 h-3.5" /> Сменить раздел
-             </Button>
-             <Button 
+             </button>
+             <button 
                onClick={() => onNavigate && onNavigate(`/community/thread/${thread.id}/edit`)} 
                className="hover:text-textPrimary transition-colors flex items-center gap-1"
              >
                <Edit3 className="w-3.5 h-3.5" /> Редактировать
-             </Button>
-             <Button 
+             </button>
+             <button 
                onClick={handleToggleVisibility} 
                className="hover:text-textPrimary transition-colors"
              >
                {thread.visibilityState === 'hidden' ? 'Опубликовать' : 'Скрыть'}
-             </Button>
-             <Button 
+             </button>
+             <button 
                onClick={handleToggleDiscussion} 
                className="hover:text-textPrimary transition-colors"
              >
                {thread.discussionState === 'archived' ? 'Возобновить' : 'Закрыть тему'}
-             </Button>
-             <Button variant="ghost" size="sm" onClick={() => setIsDeleteModalOpen(true)} className="gap-1 min-h-0 text-danger/80 hover:text-danger hover:bg-danger/10">
+             </button>
+             <button 
+               onClick={() => setIsDeleteModalOpen(true)} 
+               className="text-danger/80 hover:text-danger transition-colors flex items-center gap-1"
+             >
                <Trash2 className="w-3.5 h-3.5" /> Удалить
-             </Button>
+             </button>
           </div>
         )}
       </div>
@@ -1278,14 +1280,20 @@ export default function CommunityThreadPage({
       {/* TABS: NeedFeedback Dual Channel (BR-COM-055, FR-COM-058) */}
       {thread.type === 'need_feedback' && (
         <div className="flex items-center gap-6 border-b border-borderDef/60 mb-8 select-none">
-          <Button variant="ghost" onClick={() => setActiveFeedbackTab('feedback')} className={`pb-3 rounded-none border-b-2 min-h-0 gap-2 ${activeFeedbackTab === 'feedback' ? 'border-info text-info hover:text-info hover:bg-info/10' : 'border-transparent text-textTertiary hover:text-textSecondary'}`}>
+          <button
+            onClick={() => setActiveFeedbackTab('feedback')}
+            className={`pb-3 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 cursor-pointer ${activeFeedbackTab === 'feedback' ? 'border-info text-info' : 'border-transparent text-textTertiary hover:text-textSecondary'}`}
+          >
             <HelpCircle className="w-4 h-4" />
             Структурированный фидбек ({feedbacks.length})
-          </Button>
-          <Button variant="ghost" onClick={() => setActiveFeedbackTab('comments')} className={`pb-3 rounded-none border-b-2 min-h-0 gap-2 ${activeFeedbackTab === 'comments' ? 'border-accent text-accent hover:text-accent hover:bg-accent/10' : 'border-transparent text-textTertiary hover:text-textSecondary'}`}>
+          </button>
+          <button
+            onClick={() => setActiveFeedbackTab('comments')}
+            className={`pb-3 text-sm font-bold border-b-2 transition-colors flex items-center gap-2 cursor-pointer ${activeFeedbackTab === 'comments' ? 'border-accent text-accent' : 'border-transparent text-textTertiary hover:text-textSecondary'}`}
+          >
             <MessageSquare className="w-4 h-4" />
             Обсуждение ({thread.repliesCount})
-          </Button>
+          </button>
         </div>
       )}
 
@@ -1318,7 +1326,7 @@ export default function CommunityThreadPage({
                   {thread.needFeedbackDetails?.feedbackCategories.map(cat => {
                     const active = fbSelectedCats.includes(cat);
                     return (
-                      <Button
+                      <button
                         type="button"
                         key={cat}
                         onClick={() => {
@@ -1328,7 +1336,7 @@ export default function CommunityThreadPage({
                         className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors cursor-pointer ${active ? 'bg-info/20 text-info border-info' : 'bg-surface-2 text-textSecondary border-borderDef hover:border-borderStrong'}`}
                       >
                         {cat}
-                      </Button>
+                      </button>
                     );
                   })}
                 </div>
@@ -1506,14 +1514,215 @@ export default function CommunityThreadPage({
 
 
       {/* 2. DELETE THREAD MODAL (COM-API-009, BR-COM-021) */}
-      <Modal
-          isOpen={isDeleteModalOpen}
-          onClose={() => setIsDeleteModalOpen(false)}
-          title="Отклик на вакансию"
-          icon={<UserCheck />}
-          maxWidth="md"
-        >
-          <p className="text-xs text-textSecondary leading-relaxed">
+      {typeof document !== 'undefined' && isDeleteModalOpen && createPortal(
+        <div className="fixed inset-0 z-modal flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fadeIn">
+          <div className="fixed inset-0" onClick={() => setIsDeleteModalOpen(false)} aria-hidden="true" />
+          <div className="relative z-10 bg-surface-1 border border-borderDef rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 animate-scaleUp">
+            <div className="flex items-center gap-3 text-danger pb-3 border-b border-borderDef">
+              <Trash2 className="w-5 h-5 shrink-0" />
+              <h3 className="text-base font-bold text-textPrimary">Удаление темы</h3>
+            </div>
+            
+            <p className="text-xs text-textSecondary leading-relaxed">
+              Вы уверены, что хотите удалить тему <strong className="text-textPrimary">«{thread.title}»</strong>?
+            </p>
+            <p className="text-xs text-textTertiary bg-surface-2/60 p-3 rounded-xl border border-borderDef/60">
+              Тема будет скрыта из общего каталога и поиска, но история ответов сохранится в архиве.
+            </p>
+
+            <div className="flex justify-end gap-3 pt-2">
+              <Button variant="ghost" onClick={() => setIsDeleteModalOpen(false)}>Отмена</Button>
+              <Button variant="danger" onClick={handleConfirmDeleteThread}>Да, удалить тему</Button>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* 3. REPORT MODAL */}
+      {typeof document !== 'undefined' && isReportModalOpen && createPortal(
+        <div className="fixed inset-0 z-modal flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fadeIn">
+          <div className="fixed inset-0" onClick={() => setIsReportModalOpen(false)} aria-hidden="true" />
+          <div className="relative z-10 bg-surface-1 border border-borderDef rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 animate-scaleUp">
+            <div className="flex items-center justify-between pb-3 border-b border-borderDef">
+              <div className="flex items-center gap-2.5 text-danger">
+                <Flag className="w-5 h-5 shrink-0" />
+                <h3 className="text-base font-bold text-textPrimary">Пожаловаться</h3>
+              </div>
+              <button onClick={() => setIsReportModalOpen(false)} className="text-textTertiary hover:text-textPrimary">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <p className="text-xs text-textSecondary">
+              Объект жалобы: <strong className="text-textPrimary">{reportTarget?.type === 'thread' ? 'Тема целиком' : `Сообщение от @${reportTarget?.authorNick || 'пользователя'}`}</strong>.
+              Жалоба поступит на рассмотрение модераторам.
+            </p>
+
+            <form onSubmit={handleSubmitReport} className="space-y-4">
+              <div className="space-y-2">
+                {[
+                  { id: 'spam', label: 'Спам, флуд, несогласованная реклама' },
+                  { id: 'harassment', label: 'Оскорбления, агрессия, троллинг' },
+                  { id: 'warez', label: 'Нелицензионный контент, пиратство, варез' },
+                  { id: 'fraud', label: 'Мошенничество, фишинг, вредоносные ссылки' },
+                  { id: 'copyright', label: 'Нарушение авторских прав' },
+                  { id: 'other', label: 'Другое нарушение правил платформы' },
+                ].map(r => (
+                  <label key={r.id} className="flex items-center gap-3 p-2.5 rounded-xl border border-borderDef bg-surface-2/40 hover:bg-surface-2 cursor-pointer transition-colors">
+                    <input
+                      type="radio"
+                      name="report_reason"
+                      checked={reportReason === r.id}
+                      onChange={() => setReportReason(r.id as any)}
+                      className="accent-accent"
+                    />
+                    <span className="text-xs font-semibold text-textPrimary">{r.label}</span>
+                  </label>
+                ))}
+              </div>
+
+              <div>
+                <label className="block text-xs text-textSecondary mb-1.5 font-semibold">Дополнительные пояснения</label>
+                <textarea
+                  value={reportDetails}
+                  onChange={e => setReportDetails(e.target.value)}
+                  placeholder="Опишите подробнее суть нарушения..."
+                  className="w-full h-20 bg-surface-2 border border-borderDef focus:border-danger rounded-xl p-3 text-xs text-textPrimary outline-none resize-none"
+                />
+              </div>
+
+              <div className="flex justify-end gap-3 pt-2 border-t border-borderDef/50">
+                <Button type="button" variant="ghost" onClick={() => setIsReportModalOpen(false)}>Отмена</Button>
+                <Button type="submit" variant="danger">Отправить жалобу</Button>
+              </div>
+            </form>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* 4. CATEGORY CHANGE MODAL (COM-API-043, BR-COM-015) */}
+      {typeof document !== 'undefined' && isCategoryModalOpen && createPortal(
+        <div className="fixed inset-0 z-modal flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fadeIn">
+          <div className="fixed inset-0" onClick={() => setIsCategoryModalOpen(false)} aria-hidden="true" />
+          <div className="relative z-10 bg-surface-1 border border-borderDef rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 animate-scaleUp">
+            <div className="flex items-center justify-between pb-3 border-b border-borderDef">
+              <div className="flex items-center gap-2.5 text-accent">
+                <FolderSync className="w-5 h-5 shrink-0" />
+                <h3 className="text-base font-bold text-textPrimary">Смена раздела темы</h3>
+              </div>
+              <button onClick={() => setIsCategoryModalOpen(false)} className="text-textTertiary hover:text-textPrimary">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <p className="text-xs text-textSecondary leading-relaxed">
+              Выберите новый раздел для перемещения темы <strong className="text-textPrimary">«{thread.title}»</strong>:
+            </p>
+
+            <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
+              {MOCK_COMMUNITY_CATEGORIES.filter(cat => cat.status === 'active').map(cat => (
+                <label 
+                  key={cat.id} 
+                  className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-colors ${
+                    selectedNewCategoryId === cat.id 
+                      ? 'bg-accent/15 border-accent text-textPrimary' 
+                      : 'bg-surface-2/40 border-borderDef hover:bg-surface-2 text-textSecondary'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="radio"
+                      name="category_select"
+                      checked={selectedNewCategoryId === cat.id}
+                      onChange={() => setSelectedNewCategoryId(cat.id)}
+                      className="accent-accent"
+                    />
+                    <div>
+                      <div className="text-xs font-bold text-textPrimary">{cat.name}</div>
+                      <div className="text-[11px] text-textTertiary">{cat.description}</div>
+                    </div>
+                  </div>
+                </label>
+              ))}
+            </div>
+
+            <div className="flex justify-end gap-3 pt-2 border-t border-borderDef/50">
+              <Button type="button" variant="ghost" onClick={() => setIsCategoryModalOpen(false)}>Отмена</Button>
+              <Button type="button" variant="primary" onClick={handleConfirmChangeCategory}>Перенести тему</Button>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* 5. REVISIONS HISTORY MODAL (COM-API-027, COM-API-028, FR-COM-075) */}
+      {typeof document !== 'undefined' && revisionsModalOpen && revisionsData && createPortal(
+        <div className="fixed inset-0 z-modal flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fadeIn">
+          <div className="fixed inset-0" onClick={() => setRevisionsModalOpen(false)} aria-hidden="true" />
+          <div className="relative z-10 bg-surface-1 border border-borderDef rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-scaleUp">
+            <div className="flex items-center justify-between pb-3 border-b border-borderDef">
+              <div className="flex items-center gap-2.5 text-accent">
+                <Clock className="w-5 h-5 shrink-0" />
+                <h3 className="text-base font-bold text-textPrimary">{revisionsData.targetTitle}</h3>
+              </div>
+              <button onClick={() => setRevisionsModalOpen(false)} className="text-textTertiary hover:text-textPrimary">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
+              {revisionsData.items.map(rev => (
+                <div key={rev.version} className="p-4 rounded-xl bg-surface-2/60 border border-borderDef space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-0.5 rounded bg-accent/20 text-accent font-bold text-[10px]">
+                        Версия {rev.version}
+                      </span>
+                      <span className="font-semibold text-textPrimary">@{rev.authorNick}</span>
+                    </div>
+                    <span className="text-textTertiary text-[11px]">{rev.date}</span>
+                  </div>
+                  {rev.version === revisionsData.items[0]?.version && (
+                    <span className="text-[10px] text-textTertiary font-semibold block uppercase tracking-wider">Текущая версия</span>
+                  )}
+                  {rev.title && (
+                    <div className="text-xs font-bold text-textPrimary">
+                      Заголовок: {rev.title}
+                    </div>
+                  )}
+                  <div className="text-xs text-textSecondary bg-surface-1 p-3 rounded-lg border border-borderDef/40 font-mono whitespace-pre-wrap leading-relaxed">
+                    {rev.content}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-end pt-2 border-t border-borderDef/50">
+              <Button variant="ghost" onClick={() => setRevisionsModalOpen(false)}>Закрыть</Button>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* 6. CANDIDATE APPLY MODAL (BR-COM-049, COM-API-017) */}
+      {typeof document !== 'undefined' && isApplyModalOpen && createPortal(
+        <div className="fixed inset-0 z-modal flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fadeIn">
+          <div className="fixed inset-0" onClick={() => setIsApplyModalOpen(false)} aria-hidden="true" />
+          <div className="relative z-10 bg-surface-1 border border-borderDef rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-scaleUp">
+            <div className="flex items-center justify-between pb-3 border-b border-borderDef">
+              <div className="flex items-center gap-2.5">
+                <UserCheck className="w-5 h-5 text-accent" />
+                <h3 className="text-base font-bold text-textPrimary">Отклик на вакансию</h3>
+              </div>
+              <button onClick={() => setIsApplyModalOpen(false)} className="text-textTertiary hover:text-textPrimary">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            <p className="text-xs text-textSecondary leading-relaxed">
               Отклик является <strong className="text-textPrimary">строго приватным</strong> и будет виден только автору темы. Прямые контакты не раскрываются до взаимного подтверждения.
             </p>
 
@@ -1536,117 +1745,57 @@ export default function CommunityThreadPage({
                 <Button type="submit" variant="primary" disabled={!applyMessage.trim()}>Отправить отклик</Button>
               </div>
             </form>
-        </Modal>
+          </div>
+        </div>,
+        document.body
+      )}
 
       {/* 7. CLOSE SEARCH MODAL */}
-      
-      {/* 2. DELETE THREAD MODAL (COM-API-009, BR-COM-021) */}
-      <Modal isOpen={isDeleteModalOpen} onClose={() => setIsDeleteModalOpen(false)} title="Удалить тред?" icon={<Trash2 />} maxWidth="sm">
-        <p className="text-sm text-textSecondary mb-4">Вы уверены, что хотите удалить этот тред? Это действие необратимо.</p>
-        <div className="flex justify-end gap-3 pt-2">
-          <Button variant="ghost" onClick={() => setIsDeleteModalOpen(false)}>Отмена</Button>
-          <Button variant="danger" onClick={handleConfirmDeleteThread}>Да, удалить тред</Button>
-        </div>
-      </Modal>
-
-      {/* 3. REPORT MODAL */}
-      <Modal isOpen={isReportModalOpen} onClose={() => setIsReportModalOpen(false)} title="Пожаловаться" icon={<Flag />} maxWidth="sm">
-        <form onSubmit={handleSubmitReport} className="space-y-4">
-          <div className="space-y-2">
-            {[
-              { id: 'spam', label: 'Спам или реклама' },
-              { id: 'insult', label: 'Оскорбление или токсичность' },
-              { id: 'nsfw', label: 'Неприемлемый контент (NSFW)' },
-              { id: 'rules', label: 'Нарушение правил раздела' }
-            ].map(r => (
-              <label key={r.id} className="flex items-center gap-3 p-3 rounded-xl border border-borderDef bg-surface-2/40 hover:bg-surface-2 cursor-pointer transition-colors">
-                <input type="radio" name="reportReason" checked={reportReason === r.id} onChange={() => setReportReason(r.id as any)} className="accent-accent" />
-                <span className="text-xs font-semibold text-textPrimary">{r.label}</span>
-              </label>
-            ))}
-          </div>
-          <div className="flex justify-end gap-3 pt-2">
-            <Button type="button" variant="ghost" onClick={() => setIsReportModalOpen(false)}>Отмена</Button>
-            <Button type="submit" variant="danger">Отправить жалобу</Button>
-          </div>
-        </form>
-      </Modal>
-
-      {/* 4. CATEGORY CHANGE MODAL (COM-API-043, BR-COM-015) */}
-      <Modal isOpen={isCategoryModalOpen} onClose={() => setIsCategoryModalOpen(false)} title="Изменить категорию" icon={<CornerDownRight />} maxWidth="sm">
-        <div className="space-y-4">
-          <label className="block text-xs font-bold text-textSecondary uppercase tracking-wider mb-2">Новый раздел</label>
-          <select value={selectedNewCategoryId} onChange={e => setSelectedNewCategoryId(e.target.value)} className="w-full h-10 bg-surface-2 border border-borderDef rounded-xl px-3 text-textPrimary text-sm outline-none focus:border-accent">
-            {MOCK_COMMUNITY_CATEGORIES.map(c => (
-              <option key={c.id} value={c.id}>{c.name}</option>
-            ))}
-          </select>
-          <div className="flex justify-end gap-3 pt-2">
-            <Button type="button" variant="ghost" onClick={() => setIsCategoryModalOpen(false)}>Отмена</Button>
-            <Button type="button" variant="primary" onClick={handleConfirmChangeCategory}>Перенести тему</Button>
-          </div>
-        </div>
-      </Modal>
-
-      {/* 5. REVISIONS HISTORY MODAL (COM-API-027, COM-API-028, FR-COM-075) */}
-      <Modal isOpen={revisionsModalOpen} onClose={() => setRevisionsModalOpen(false)} title={revisionsData?.targetTitle || 'История правок'} icon={<Clock />} maxWidth="md">
-        <div className="space-y-4 max-h-[50vh] overflow-y-auto">
-          {revisionsData?.items.map((rev: any, idx: number) => (
-            <div key={idx} className="p-4 bg-surface-2 rounded-xl border border-borderDef">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm font-bold text-textPrimary">Версия {rev.version}</span>
-                <span className="text-xs text-textTertiary">{rev.date}</span>
-              </div>
-              <p className="text-xs text-textSecondary">{rev.content}</p>
+      {typeof document !== 'undefined' && isCloseReasonModalOpen && createPortal(
+        <div className="fixed inset-0 z-modal flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-fadeIn">
+          <div className="fixed inset-0" onClick={() => setIsCloseReasonModalOpen(false)} aria-hidden="true" />
+          <div className="relative z-10 bg-surface-1 border border-borderDef rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5 animate-scaleUp">
+            <div className="flex items-center justify-between pb-3 border-b border-borderDef">
+              <h3 className="text-base font-bold text-textPrimary">Завершить поиск команды</h3>
+              <button onClick={() => setIsCloseReasonModalOpen(false)} className="text-textTertiary hover:text-textPrimary">
+                <X className="w-5 h-5" />
+              </button>
             </div>
-          ))}
-          <div className="flex justify-end pt-2">
-            <Button variant="ghost" onClick={() => setRevisionsModalOpen(false)}>Закрыть</Button>
-          </div>
-        </div>
-      </Modal>
 
-      {/* 6. CANDIDATE APPLY MODAL (BR-COM-049, COM-API-017) */}
-      <Modal isOpen={isApplyModalOpen} onClose={() => setIsApplyModalOpen(false)} title="Отклик на вакансию" icon={<UserCheck />} maxWidth="md">
-        <p className="text-xs text-textSecondary leading-relaxed mb-4">
-          Отклик является <strong className="text-textPrimary">строго приватным</strong> и будет виден только автору темы. Прямые контакты не раскрываются до взаимного подтверждения.
-        </p>
-        <form onSubmit={handleApplySubmit} className="space-y-4">
-          <div>
-            <label className="block text-xs font-bold text-textSecondary uppercase tracking-wider mb-2">Сопроводительное сообщение*</label>
-            <textarea value={applyMessage} onChange={e => setApplyMessage(e.target.value)} placeholder="Расскажите о своем опыте..." className="w-full min-h-[120px] bg-surface-2 border border-borderDef focus:border-accent rounded-xl p-3 text-xs text-textPrimary outline-none resize-y" required />
-          </div>
-          <div className="flex justify-end gap-3 pt-2">
-            <Button type="button" variant="ghost" onClick={() => setIsApplyModalOpen(false)}>Отмена</Button>
-            <Button type="submit" variant="primary" disabled={!applyMessage.trim()}>Отправить отклик</Button>
-          </div>
-        </form>
-      </Modal>
+            <p className="text-xs text-textSecondary">
+              Укажите причину закрытия поиска. Тема останется доступна для чтения, но кнопка отклика будет скрыта:
+            </p>
 
-      {/* 7. CLOSE SEARCH MODAL */}
-      <Modal isOpen={isCloseReasonModalOpen} onClose={() => setIsCloseReasonModalOpen(false)} title="Завершить поиск команды" icon={<UserCheck />} maxWidth="md">
-        <p className="text-xs text-textSecondary mb-4">Укажите причину закрытия поиска. Тема останется доступна для чтения, но кнопка отклика будет скрыта:</p>
-        <div className="space-y-2 mb-4">
-          {[
-            { id: 'team_found', label: 'Команда успешно укомплектована' },
-            { id: 'no_longer_needed', label: 'Поиск более не актуален' },
-            { id: 'project_cancelled', label: 'Разработка проекта отменена' },
-            { id: 'other', label: 'Другая причина' },
-          ].map(reason => (
-            <label key={reason.id} className="flex items-center gap-3 p-3 rounded-xl border border-borderDef bg-surface-2/40 hover:bg-surface-2 cursor-pointer transition-colors">
-              <input type="radio" name="close_reason" checked={selectedCloseReason === reason.id} onChange={() => setSelectedCloseReason(reason.id as any)} className="accent-accent" />
-              <span className="text-xs font-semibold text-textPrimary">{reason.label}</span>
-            </label>
-          ))}
-        </div>
-        <div className="flex justify-end gap-3 pt-3">
-          <Button variant="ghost" onClick={() => setIsCloseReasonModalOpen(false)}>Отмена</Button>
-          <Button variant="danger" onClick={handleConfirmCloseSearch}>Закрыть поиск</Button>
-        </div>
-      </Modal>
+            <div className="space-y-2">
+              {[
+                { id: 'team_found', label: 'Команда успешно укомплектована' },
+                { id: 'no_longer_needed', label: 'Поиск более не актуален' },
+                { id: 'project_cancelled', label: 'Разработка проекта отменена' },
+                { id: 'other', label: 'Другая причина' },
+              ].map(reason => (
+                <label key={reason.id} className="flex items-center gap-3 p-3 rounded-xl border border-borderDef bg-surface-2/40 hover:bg-surface-2 cursor-pointer transition-colors">
+                  <input
+                    type="radio"
+                    name="close_reason"
+                    checked={selectedCloseReason === reason.id}
+                    onChange={() => setSelectedCloseReason(reason.id as any)}
+                    className="accent-accent"
+                  />
+                  <span className="text-xs font-semibold text-textPrimary">{reason.label}</span>
+                </label>
+              ))}
+            </div>
 
-      <DevMatrixPanel pageName="Тема"
- fields={devFields} bottomOffsetClass="bottom-0" />
+            <div className="flex justify-end gap-3 pt-3">
+              <Button variant="ghost" onClick={() => setIsCloseReasonModalOpen(false)}>Отмена</Button>
+              <Button variant="danger" onClick={handleConfirmCloseSearch}>Закрыть поиск</Button>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
+
+      <DevMatrixPanel pageName="Тема" fields={devFields} bottomOffsetClass="bottom-0" />
     </div>
   );
 }
@@ -1777,9 +1926,12 @@ function CommentNode({
             
             {/* More Menu */}
             <div className="relative">
-              <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-1 min-w-0 min-h-0 text-textTertiary hover:text-textSecondary">
+              <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-textTertiary hover:text-textSecondary transition-colors p-1 rounded-md"
+              >
                 <MoreVertical className="w-4 h-4" />
-              </Button>
+              </button>
 
               {isMenuOpen && (
                 <div 
@@ -1788,32 +1940,32 @@ function CommentNode({
                 >
                   {canEditOrDelete && (
                     <>
-                      <Button 
+                      <button 
                         onClick={() => { setIsEditing(true); setIsMenuOpen(false); }}
                         className="w-full text-left px-3 py-2 hover:bg-surface-2 flex items-center gap-2 text-textPrimary"
                       >
                         <Edit3 className="w-3.5 h-3.5" /> Редактировать
-                      </Button>
-                      <Button 
+                      </button>
+                      <button 
                         onClick={() => { onDeleteComment(comment.id); setIsMenuOpen(false); }}
                         className="w-full text-left px-3 py-2 hover:bg-surface-2 flex items-center gap-2 text-danger"
                       >
                         <Trash2 className="w-3.5 h-3.5" /> Удалить
-                      </Button>
+                      </button>
                     </>
                   )}
-                  <Button 
+                  <button 
                     onClick={() => { onOpenRevisions && onOpenRevisions(comment); setIsMenuOpen(false); }}
                     className="w-full text-left px-3 py-2 hover:bg-surface-2 flex items-center gap-2 text-textSecondary hover:text-textPrimary"
                   >
                     <Clock className="w-3.5 h-3.5" /> История правок
-                  </Button>
-                  <Button 
+                  </button>
+                  <button 
                     onClick={() => { onReportComment(comment.id, comment.authorNick); setIsMenuOpen(false); }}
                     className="w-full text-left px-3 py-2 hover:bg-surface-2 flex items-center gap-2 text-textTertiary hover:text-textSecondary"
                   >
                     <Flag className="w-3.5 h-3.5" /> Пожаловаться
-                  </Button>
+                  </button>
                 </div>
               )}
             </div>
@@ -1834,27 +1986,42 @@ function CommentNode({
               </div>
             </form>
           ) : (
-            <div className="text-body-sm leading-relaxed text-textSecondary whitespace-pre-wrap mb-3 pr-4">
+            <div className="text-[14px] leading-relaxed text-textSecondary whitespace-pre-wrap mb-3 pr-4">
               {comment.bodyMarkdown}
             </div>
           )}
 
           {/* Action Row */}
           <div className="flex items-center gap-5 mt-1">
-            <Button variant="ghost" size="sm" onClick={handleLike} className={`gap-1.5 min-h-0 ${hasLiked ? "text-danger hover:text-danger hover:bg-danger/10" : "text-textTertiary hover:text-textPrimary"}`}>
+            <button 
+              onClick={handleLike}
+              className={`flex items-center gap-1.5 text-xs font-bold transition-colors cursor-pointer ${
+                hasLiked ? 'text-danger' : 'text-textTertiary hover:text-textPrimary'
+              }`}
+            >
               <Heart className={`w-3.5 h-3.5 ${hasLiked ? 'fill-current' : ''}`} /> {comment.likesCount}
-            </Button>
+            </button>
             
             {canReply && (
-              <Button variant="ghost" size="sm" onClick={() => setIsReplying(!isReplying)} className="gap-1 min-h-0 text-textTertiary hover:text-textPrimary">
+              <button 
+                onClick={() => setIsReplying(!isReplying)}
+                className="text-xs font-bold text-textTertiary hover:text-textPrimary transition-colors cursor-pointer flex items-center gap-1"
+              >
                 <CornerDownRight className="w-3.5 h-3.5" /> Ответить
-              </Button>
+              </button>
             )}
             
             {canManageSolution && !comment.parentId && (
-              <Button variant="ghost" size="sm" onClick={() => onToggleSolution && onToggleSolution(comment.id)} className={`ml-auto gap-1 text-[11px] uppercase tracking-wider min-h-0 ${comment.isSolution ? "text-danger hover:text-danger hover:bg-danger/10" : "text-success hover:text-success hover:bg-success/10"}`}>
+              <button 
+                onClick={() => onToggleSolution && onToggleSolution(comment.id)}
+                className={`text-[11px] font-extrabold uppercase tracking-wider transition-colors ml-auto cursor-pointer ${
+                  comment.isSolution 
+                    ? 'text-danger hover:text-danger/80' 
+                    : 'text-success/80 hover:text-success'
+                }`}
+              >
                 {comment.isSolution ? 'Снять решение' : 'Отметить решением'}
-              </Button>
+              </button>
             )}
           </div>
 
@@ -1990,9 +2157,12 @@ function ReplyNode({
 
             {/* Menu */}
             <div className="relative">
-              <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-1 min-w-0 min-h-0 opacity-0 group-hover:opacity-100 text-textTertiary hover:text-textSecondary">
+              <button 
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-textTertiary hover:text-textSecondary transition-colors opacity-0 group-hover:opacity-100 p-1 rounded-md"
+              >
                 <MoreVertical className="w-3.5 h-3.5" />
-              </Button>
+              </button>
 
               {isMenuOpen && (
                 <div 
@@ -2001,26 +2171,26 @@ function ReplyNode({
                 >
                   {canEditOrDelete && (
                     <>
-                      <Button 
+                      <button 
                         onClick={() => { setIsEditing(true); setIsMenuOpen(false); }}
                         className="w-full text-left px-3 py-2 hover:bg-surface-2 flex items-center gap-2 text-textPrimary"
                       >
                         <Edit3 className="w-3.5 h-3.5" /> Редактировать
-                      </Button>
-                      <Button 
+                      </button>
+                      <button 
                         onClick={() => { onDeleteComment(reply.id); setIsMenuOpen(false); }}
                         className="w-full text-left px-3 py-2 hover:bg-surface-2 flex items-center gap-2 text-danger"
                       >
                         <Trash2 className="w-3.5 h-3.5" /> Удалить
-                      </Button>
+                      </button>
                     </>
                   )}
-                  <Button 
+                  <button 
                     onClick={() => { onReportComment(reply.id, reply.authorNick); setIsMenuOpen(false); }}
                     className="w-full text-left px-3 py-2 hover:bg-surface-2 flex items-center gap-2 text-textTertiary hover:text-textSecondary"
                   >
                     <Flag className="w-3.5 h-3.5" /> Пожаловаться
-                  </Button>
+                  </button>
                 </div>
               )}
             </div>
@@ -2046,14 +2216,22 @@ function ReplyNode({
           )}
 
           <div className="flex items-center gap-4 mt-1">
-            <Button variant="ghost" size="sm" onClick={handleLike} className={`gap-1.5 min-h-0 text-[11px] ${hasLiked ? "text-danger hover:text-danger hover:bg-danger/10" : "text-textTertiary hover:text-textPrimary"}`}>
+            <button 
+              onClick={handleLike}
+              className={`flex items-center gap-1.5 text-[11px] font-bold transition-colors cursor-pointer ${
+                hasLiked ? 'text-danger' : 'text-textTertiary hover:text-textPrimary'
+              }`}
+            >
               <Heart className={`w-3.5 h-3.5 ${hasLiked ? 'fill-current' : ''}`} /> {reply.likesCount}
-            </Button>
+            </button>
             
             {canReply && (
-              <Button variant="ghost" size="sm" onClick={() => setIsReplying(!isReplying)} className="gap-1 min-h-0 text-[11px] text-textTertiary hover:text-textPrimary">
+              <button 
+                onClick={() => setIsReplying(!isReplying)}
+                className="text-[11px] font-bold text-textTertiary hover:text-textPrimary transition-colors cursor-pointer flex items-center gap-1"
+              >
                 <CornerDownRight className="w-3 h-3" /> Ответить
-              </Button>
+              </button>
             )}
           </div>
 

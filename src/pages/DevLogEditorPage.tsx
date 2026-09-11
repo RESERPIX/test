@@ -400,7 +400,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
           <div className="flex flex-col">
             <button 
               onClick={handleNavigateBack}
-              className="flex items-center gap-2 text-body-sm font-bold text-textTertiary hover:text-textPrimary transition-colors"
+              className="flex items-center gap-2 text-[14px] font-bold text-textTertiary hover:text-textPrimary transition-colors"
             >
               <ChevronLeft className="w-5 h-5" /> К девлогам
             </button>
@@ -468,7 +468,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
             <Button 
               variant="primary" 
               onClick={handlePublish} 
-              className="h-10 px-5 font-bold flex items-center gap-2 rounded-xl text-body-sm shadow-accent/20 shadow-lg"
+              className="h-10 px-5 font-bold flex items-center gap-2 rounded-xl text-[14px] shadow-accent/20 shadow-lg"
             >
               {isScheduled && scheduledAt ? (
                 <>
@@ -616,7 +616,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                 className="flex items-center gap-2 text-textTertiary hover:text-textPrimary transition-colors hover:bg-surface-1 px-4 py-2.5 rounded-xl -ml-4 border border-transparent hover:border-borderDef/50"
               >
                 <ImageIcon className="w-4 h-4" />
-                <span className="text-body-sm font-bold">Добавить обложку</span>
+                <span className="text-[14px] font-bold">Добавить обложку</span>
               </button>
             )}
             <input 
@@ -800,12 +800,12 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
               
               <div className="space-y-8">
                 <div>
-                  <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-3">
+                  <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-3">
                     Специальности
                   </label>
                   <div className="flex flex-wrap gap-2.5 mb-4">
                     {recruitmentRoles.map((role, idx) => (
-                      <span key={idx} className="flex items-center gap-2 px-3 py-1.5 bg-surface-1 border border-borderDef rounded-xl text-body-sm font-bold text-textPrimary shadow-sm">
+                      <span key={idx} className="flex items-center gap-2 px-3 py-1.5 bg-surface-1 border border-borderDef rounded-xl text-[14px] font-bold text-textPrimary shadow-sm">
                         {role}
                         <button onClick={() => setRecruitmentRoles(recruitmentRoles.filter((_, i) => i !== idx))} className="text-textTertiary hover:text-danger transition-colors ml-1">
                           <X className="w-3.5 h-3.5" />
@@ -825,13 +825,13 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                       }
                     }}
                     placeholder="Добавить роль (Например: 2D Artist) + Enter"
-                    className="w-full h-12 bg-surface-1 hover:bg-surface-2 border border-borderDef focus:border-accent rounded-xl px-4 text-body-sm text-textPrimary outline-none transition-colors placeholder:text-textTertiary shadow-sm"
+                    className="w-full h-12 bg-surface-1 hover:bg-surface-2 border border-borderDef focus:border-accent rounded-xl px-4 text-[14px] text-textPrimary outline-none transition-colors placeholder:text-textTertiary shadow-sm"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-3">
+                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-3">
                       Формат участия
                     </label>
                     <div className="relative">
@@ -850,7 +850,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                     </div>
                   </div>
                   <div>
-                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-3">
+                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-3">
                       Движок / Стек (Опционально)
                     </label>
                     <input 
@@ -864,7 +864,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                 </div>
 
                 <div>
-                  <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-3">
+                  <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-3">
                     Условия и задачи (Кратко)
                   </label>
                   <textarea 
@@ -891,12 +891,12 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
               
               <div className="space-y-8">
                 <div>
-                  <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest mb-3">
+                  <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest mb-3">
                     Фокус тестирования
                   </label>
                   <div className="flex flex-wrap gap-2.5 mb-4">
                     {feedbackCategories.map((cat, idx) => (
-                      <span key={idx} className="flex items-center gap-2 px-3 py-1.5 bg-surface-1 border border-borderDef rounded-xl text-body-sm font-bold text-textPrimary shadow-sm">
+                      <span key={idx} className="flex items-center gap-2 px-3 py-1.5 bg-surface-1 border border-borderDef rounded-xl text-[14px] font-bold text-textPrimary shadow-sm">
                         {cat}
                         <button onClick={() => setFeedbackCategories(feedbackCategories.filter((_, i) => i !== idx))} className="text-textTertiary hover:text-danger transition-colors ml-1">
                           <X className="w-3.5 h-3.5" />
@@ -916,13 +916,13 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                       }
                     }}
                     placeholder="Добавить направление (Например: Баланс) + Enter"
-                    className="w-full h-12 bg-surface-1 hover:bg-surface-2 border border-borderDef focus:border-info rounded-xl px-4 text-body-sm text-textPrimary outline-none transition-colors placeholder:text-textTertiary shadow-sm"
+                    className="w-full h-12 bg-surface-1 hover:bg-surface-2 border border-borderDef focus:border-info rounded-xl px-4 text-[14px] text-textPrimary outline-none transition-colors placeholder:text-textTertiary shadow-sm"
                   />
                 </div>
 
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <label className="block text-caption font-bold text-textTertiary uppercase tracking-widest">
+                    <label className="block text-[12px] font-bold text-textTertiary uppercase tracking-widest">
                       Целевые вопросы к игрокам
                     </label>
                     <button 
@@ -936,7 +936,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                   <div className="space-y-3">
                     {feedbackQuestions.map((q, idx) => (
                       <div key={idx} className="flex items-center gap-3">
-                        <div className="w-8 h-12 flex items-center justify-center text-body-sm font-bold text-textTertiary shrink-0">
+                        <div className="w-8 h-12 flex items-center justify-center text-[14px] font-bold text-textTertiary shrink-0">
                           {idx + 1}.
                         </div>
                         <input
@@ -959,7 +959,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                       </div>
                     ))}
                     {feedbackQuestions.length === 0 && (
-                      <div className="text-body-sm text-textTertiary font-medium p-4 border border-dashed border-borderDef rounded-xl text-center">
+                      <div className="text-[14px] text-textTertiary font-medium p-4 border border-dashed border-borderDef rounded-xl text-center">
                         Свободный фидбек (нет конкретных вопросов)
                       </div>
                     )}
@@ -976,7 +976,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
             
             <div className="flex items-center gap-3 pb-4 border-b border-borderDef">
               <Settings2 className="w-5 h-5 text-textSecondary" />
-              <span className="text-body-sm font-bold text-textPrimary tracking-wide uppercase">Настройки</span>
+              <span className="text-[14px] font-bold text-textPrimary tracking-wide uppercase">Настройки</span>
             </div>
 
             <div className="space-y-4">
@@ -985,7 +985,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                 <select 
                   value={type}
                   onChange={(e) => setType(e.target.value as DevLogType)}
-                  className="w-full appearance-none bg-surface-1 border border-borderDef hover:border-borderStrong focus:border-accent rounded-xl h-12 px-4 text-body-sm font-bold text-textPrimary outline-none cursor-pointer transition-colors shadow-sm"
+                  className="w-full appearance-none bg-surface-1 border border-borderDef hover:border-borderStrong focus:border-accent rounded-xl h-12 px-4 text-[14px] font-bold text-textPrimary outline-none cursor-pointer transition-colors shadow-sm"
                 >
                   <option value="update">Обновление / Патч</option>
                   <option value="looking_for_team">Поиск команды</option>
@@ -1011,7 +1011,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                       setLinkedJam('none'); // BR-DVL-004: jam_id не используется без game_id
                     }
                   }}
-                  className="w-full appearance-none bg-surface-1 border border-borderDef hover:border-borderStrong focus:border-accent rounded-xl h-12 px-4 text-body-sm font-bold text-textPrimary outline-none cursor-pointer transition-colors shadow-sm"
+                  className="w-full appearance-none bg-surface-1 border border-borderDef hover:border-borderStrong focus:border-accent rounded-xl h-12 px-4 text-[14px] font-bold text-textPrimary outline-none cursor-pointer transition-colors shadow-sm"
                 >
                   <option value="none">Без привязки (Личный блог)</option>
                   <option value="g-1">Cyber Quest</option>
@@ -1038,7 +1038,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                   value={linkedJam}
                   disabled={linkedGame === 'none'}
                   onChange={(e) => setLinkedJam(e.target.value)}
-                  className={`w-full appearance-none rounded-xl h-12 px-4 text-body-sm font-bold outline-none transition-colors shadow-sm ${
+                  className={`w-full appearance-none rounded-xl h-12 px-4 text-[14px] font-bold outline-none transition-colors shadow-sm ${
                     linkedGame === 'none'
                       ? 'bg-surface-2/50 border border-borderDef/40 text-textTertiary cursor-not-allowed'
                       : 'bg-surface-1 border border-borderDef hover:border-borderStrong focus:border-accent text-textPrimary cursor-pointer'
@@ -1083,7 +1083,7 @@ export default function DevLogEditorPage({ onNavigate, devlogId, scope = 'person
                   }
                 }}
                 placeholder="Добавить тег (Enter)"
-                className="w-full h-12 bg-surface-1 border border-borderDef focus:border-accent rounded-xl px-4 text-body-sm text-textPrimary outline-none transition-colors placeholder:text-textTertiary shadow-sm"
+                className="w-full h-12 bg-surface-1 border border-borderDef focus:border-accent rounded-xl px-4 text-[14px] text-textPrimary outline-none transition-colors placeholder:text-textTertiary shadow-sm"
               />
             </div>
 

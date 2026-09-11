@@ -131,7 +131,7 @@ export default function DevLogsHubPage({ onNavigate }: { onNavigate?: (path: str
             <button 
               key={tab.id}
               onClick={() => setActiveTab(tab.id as TabType)}
-              className={`flex items-center gap-2 px-5 py-3 rounded-xl text-body-sm font-bold transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 px-5 py-3 rounded-xl text-[14px] font-bold transition-all whitespace-nowrap ${
                 activeTab === tab.id 
                   ? 'bg-surface-0 text-textPrimary shadow-sm border border-borderDef' 
                   : 'text-textSecondary hover:text-textPrimary hover:bg-surface-2 bg-transparent border border-transparent'
@@ -145,14 +145,14 @@ export default function DevLogsHubPage({ onNavigate }: { onNavigate?: (path: str
 
         {/* Explicit Filter Select */}
         <div className="flex items-center gap-3 shrink-0 px-2 lg:px-0">
-          <span className="text-caption font-extrabold text-textTertiary uppercase tracking-widest hidden md:block">
+          <span className="text-[12px] font-extrabold text-textTertiary uppercase tracking-widest hidden md:block">
             Фильтр
           </span>
           <div className="relative">
             <select 
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value as DevLogType | 'all')}
-              className="appearance-none w-full md:w-auto bg-surface-2 border border-borderDef hover:border-textTertiary focus:border-accent rounded-xl h-12 pl-4 pr-10 text-body-sm font-bold text-textPrimary outline-none cursor-pointer transition-colors"
+              className="appearance-none w-full md:w-auto bg-surface-2 border border-borderDef hover:border-textTertiary focus:border-accent rounded-xl h-12 pl-4 pr-10 text-[14px] font-bold text-textPrimary outline-none cursor-pointer transition-colors"
             >
               <option value="all">Все записи</option>
               <option value="update">Обновления</option>

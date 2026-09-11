@@ -61,7 +61,7 @@ export default {
         'body': ['1rem', { lineHeight: '1.65', letterSpacing: '0', fontWeight: '400' }],
         'body-sm': ['0.875rem', { lineHeight: '1.6', letterSpacing: '0', fontWeight: '400' }],
         'caption': ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.01em', fontWeight: '400' }],
-        'overline': ['0.6875rem', { lineHeight: '1.6', letterSpacing: '0.1em', fontWeight: '600' }],
+        'overline': ['0.625rem', { lineHeight: '1.6', letterSpacing: '0.1em', fontWeight: '600' }],
       },
       boxShadow: {
         'elevation-base': 'var(--shadow-elevation-base)',
