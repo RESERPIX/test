@@ -1,0 +1,276 @@
+import { DevLogPost } from '../types/devlog';
+
+export const MOCK_DEVLOGS: DevLogPost[] = [
+  {
+    id: 'dl-brokenlore-1',
+    slug: 'brokenlore-patch-1-2-4',
+    title: 'Патч 1.2.4: Глубокая оптимизация памяти и исправление критических вылетов',
+    bodyMarkdown: 'В этом обновлении мы полностью переработали архитектуру загрузки текстур в WebGL. Внедрение кастомного алгоритма стриминга ассетов позволило высвободить до 35% оперативной памяти на мобильных устройствах, предотвращая вылеты вкладки браузера.',
+    type: 'update',
+    coverUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop',
+    
+    authorUserId: '1',
+    authorNick: 'NocturnalDevs',
+    authorAvatarUrl: 'https://api.dicebear.com/7.x/bottts/svg?seed=nocturnal',
+    
+    publisherType: 'team',
+    publisherId: 't-nocturnal',
+    publisherName: 'Nocturnal Team',
+    
+    coreStatus: 'published',
+    
+    gameId: 'game-brokenlore',
+    gameSlug: 'brokenlore',
+    gameName: 'BrokenLore: FOLLOW',
+    
+    tags: ['patch', 'optimization', 'webgl'],
+    
+    createdAt: '2026-07-17T10:00:00Z',
+    updatedAt: '2026-07-17T10:00:00Z',
+    publishedAt: '2026-07-17T10:00:00Z',
+    
+    likesCount: 42,
+    commentsCount: 15,
+    isEdited: false,
+    isCommentsDisabled: false,
+    normalizedViews: 1240
+  },
+  {
+    id: 'dl-brokenlore-2',
+    isPinnedToGame: true,
+    slug: 'brokenlore-announcement',
+    title: 'Анонс масштабного дополнения «Сигнал из Бездны»',
+    bodyMarkdown: 'Мы готовы приоткрыть завесу тайны над следующим крупным контентным обновлением...',
+    type: 'announcement',
+    coverUrl: 'https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=400&auto=format&fit=crop',
+    
+    authorUserId: '1',
+    authorNick: 'NocturnalDevs',
+    authorAvatarUrl: 'https://api.dicebear.com/7.x/bottts/svg?seed=nocturnal',
+    
+    publisherType: 'team',
+    publisherId: 't-nocturnal',
+    publisherName: 'Nocturnal Team',
+    
+    coreStatus: 'published',
+    
+    gameId: 'game-brokenlore',
+    gameSlug: 'brokenlore',
+    gameName: 'BrokenLore: FOLLOW',
+    
+    tags: ['dlc', 'announcement', 'teaser'],
+    
+    createdAt: '2026-07-12T10:00:00Z',
+    updatedAt: '2026-07-12T10:00:00Z',
+    publishedAt: '2026-07-12T10:00:00Z',
+    
+    likesCount: 156,
+    commentsCount: 48,
+    isEdited: false,
+    isCommentsDisabled: false,
+    normalizedViews: 5200
+  },
+  {
+    id: 'dl-1',
+    slug: 'cyber-quest-update-v0-4',
+    title: 'Cyber Quest: Большое обновление v0.4 - Боевая система и новые локации',
+    bodyMarkdown: 'Привет! Мы долго трудились над новой версией...\n\n### Что нового?\n- Полностью переписана боевка\n- Добавлен Неоновый квартал\n- Куча фиксов',
+    type: 'update',
+    coverUrl: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80',
+    
+    authorUserId: 'u-1',
+    authorNick: 'NeonKitten',
+    authorAvatarUrl: 'https://i.pravatar.cc/150?u=u-1',
+    
+    publisherType: 'team',
+    publisherId: 't-1',
+    publisherName: 'Neon Cats Studio',
+    
+    coreStatus: 'published',
+    
+    gameId: 'g-1',
+    gameSlug: 'cyber-quest',
+    gameName: 'Cyber Quest',
+    
+    tags: ['update', 'combat', 'cyberpunk'],
+    
+    createdAt: '2026-09-01T10:00:00Z',
+    updatedAt: '2026-09-01T10:00:00Z',
+    publishedAt: '2026-09-01T10:00:00Z',
+    
+    isEdited: false,
+    isCommentsDisabled: false,
+    
+    normalizedViews: 450,
+    likesCount: 124,
+    commentsCount: 12,
+  },
+  {
+    id: 'dl-2',
+    slug: 'looking-for-2d-artist',
+    title: 'Ищем 2D-художника для cozy-фермы',
+    bodyMarkdown: 'Привет! Мы начали делать небольшую ферму про выращивание магических тыкв. Проект пока на стадии энтузиазма, но с планами на релиз.',
+    type: 'looking_for_team',
+    
+    authorUserId: 'u-2',
+    authorNick: 'CozyDev',
+    
+    publisherType: 'user',
+    publisherId: 'u-2',
+    publisherName: 'CozyDev',
+    
+    coreStatus: 'published',
+    
+    gameId: 'g-2',
+    gameName: 'Magic Pumpkins',
+    
+    tags: ['recruitment', '2d', 'art'],
+    
+    createdAt: '2026-09-02T15:30:00Z',
+    updatedAt: '2026-09-02T15:30:00Z',
+    publishedAt: '2026-09-02T15:30:00Z',
+    
+    isEdited: false,
+    isCommentsDisabled: false,
+    
+    normalizedViews: 120,
+    likesCount: 15,
+    commentsCount: 3,
+    
+    recruitmentDetails: {
+      roles: ['2D-художник', 'Аниматор'],
+      participationFormat: 'enthusiasm',
+      summary: 'Рисовать пиксель-арт овощи и персонажей',
+      engine: 'Godot',
+    }
+  },
+  {
+    id: 'dl-3',
+    slug: 'failed-jam-postmortem',
+    title: 'Postmortem: Почему мы не успели сдать игру на джем',
+    bodyMarkdown: 'Спойлер: мы взяли слишком сложную механику и не рассчитали силы.',
+    type: 'postmortem',
+    
+    authorUserId: 'u-3',
+    authorNick: 'JammerPro',
+    
+    publisherType: 'user',
+    publisherId: 'u-3',
+    publisherName: 'JammerPro',
+    
+    coreStatus: 'published',
+    
+    gameId: 'g-jam-game',
+    gameName: 'One Room Escape',
+    jamId: 'j-1',
+    jamName: 'Mini-Jam: One Room',
+    
+    tags: ['postmortem', 'fail', 'learning'],
+    
+    createdAt: '2026-09-03T18:00:00Z',
+    updatedAt: '2026-09-03T18:00:00Z',
+    publishedAt: '2026-09-03T18:00:00Z',
+    
+    isEdited: true,
+    isCommentsDisabled: false,
+    
+    normalizedViews: 890,
+    likesCount: 302,
+    commentsCount: 45,
+  },
+  {
+    id: 'dl-4',
+    slug: 'secret-draft',
+    title: 'Черновик следующего обновления',
+    bodyMarkdown: 'Пока никто не видит.',
+    type: 'update',
+    
+    authorUserId: 'u-1',
+    authorNick: 'NeonKitten',
+    
+    publisherType: 'team',
+    publisherId: 't-1',
+    publisherName: 'Neon Cats Studio',
+    
+    coreStatus: 'draft',
+    
+    gameId: 'g-1',
+    
+    tags: [],
+    
+    createdAt: '2026-09-04T10:00:00Z',
+    updatedAt: '2026-09-04T10:00:00Z',
+    
+    isEdited: false,
+    isCommentsDisabled: false,
+    
+    normalizedViews: 0,
+    likesCount: 0,
+    commentsCount: 0,
+  },
+  {
+    id: 'dl-5',
+    slug: 'retro-crawler-retrospective',
+    title: 'Ретроспектива: как мы создавали процедурную генерацию для подземелий',
+    bodyMarkdown: 'Хотя сам проект игры более недоступен на платформе, наш опыт построения BSP-деревьев для генерации комнат может пригодиться многим разработчикам roguelike-игр.\n\n### Архитектура генератора\nМы использовали модифицированный алгоритм двоичного разбиения пространства...',
+    type: 'postmortem',
+    coverUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
+    
+    authorUserId: 'u-5',
+    authorNick: 'DungeonMaster',
+    
+    publisherType: 'user',
+    publisherId: 'u-5',
+    publisherName: 'DungeonMaster',
+    
+    coreStatus: 'published',
+    
+    gameId: 'g-retro-crawler',
+    gameName: 'Retro Crawler',
+    
+    tags: ['gamedev', 'procedural', 'archive'],
+    
+    createdAt: '2026-05-10T12:00:00Z',
+    updatedAt: '2026-05-12T14:00:00Z',
+    publishedAt: '2026-05-10T12:00:00Z',
+    archivedAt: '2026-08-01T10:00:00Z',
+    archiveReason: 'Игра была удалена автором. Пост переведён в статус архива (BR-DVL-037).',
+    
+    isEdited: true,
+    isCommentsDisabled: true,
+    
+    normalizedViews: 1420,
+    likesCount: 88,
+    commentsCount: 19,
+  },
+  {
+    id: 'dl-6',
+    slug: 'blocked-violating-post',
+    title: 'Неофициальный порт известной франшизы на WebGL',
+    bodyMarkdown: 'Мы перенесли оригинальные ассеты и запустили в браузере без разрешения правообладателя...',
+    type: 'announcement',
+    
+    authorUserId: 'u-1',
+    authorNick: 'NeonKitten',
+    
+    publisherType: 'team',
+    publisherId: 't-1',
+    publisherName: 'Neon Cats Studio',
+    
+    coreStatus: 'blocked',
+    blockReason: 'Нарушение авторских прав и правил платформы (BR-DVL-031). Неавторизованное использование интеллектуальной собственности.',
+    
+    tags: ['webgl', 'port'],
+    
+    createdAt: '2026-09-05T11:00:00Z',
+    updatedAt: '2026-09-05T11:00:00Z',
+    publishedAt: '2026-09-05T11:00:00Z',
+    
+    isEdited: false,
+    isCommentsDisabled: false,
+    
+    normalizedViews: 320,
+    likesCount: 4,
+    commentsCount: 1,
+  }
+];

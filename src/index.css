@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LIGHT THEME */
+  --color-surface-0: 249 250 251;
+  --color-surface-1: 255 255 255;
+  --color-surface-2: 243 244 246;
+  --color-surface-3: 229 231 235;
+  --color-surface-4: 209 213 219;
+  --color-surface-disabled: 243 244 246;
+  
+  --color-border-def: 229 231 235;
+  --color-border-strong: 209 213 219;
+  
+  --color-text-primary: 17 24 39;
+  --color-text-secondary: 31 41 55;
+  --color-text-tertiary: 75 85 99;
+  --color-text-disabled: 107 114 128;
+  
+  --color-accent: 124 58 237;
+  --color-accent-hover: 109 40 217;
+  --color-accent-muted: rgba(124, 58, 237, 0.1);
+  --color-accent-glow: rgba(124, 58, 237, 0.3);
+  
+  --color-success: 5 150 105;
+  --color-danger: 220 38 38;
+  --color-warning: 217 119 6;
+  --color-info: 2 132 199;
+  --color-celebratory: 180 83 9;
+  --color-reaction: 219 39 119;
+  --color-reaction-hover: 190 24 93;
+
+  --shadow-elevation-base: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-elevation-raised: 0 4px 6px -1px rgb(0 0 0 / 0.15), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-elevation-overlay: 0 20px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.15);
+}
+
+.dark {
+  /* DARK THEME */
+  --color-surface-0: 15 15 15;
+  --color-surface-1: 20 20 21;
+  --color-surface-2: 28 28 30;
+  --color-surface-3: 39 39 42;
+  --color-surface-4: 53 53 58;
+  --color-surface-disabled: 42 46 53;
+  
+  --color-border-def: 39 39 42;
+  --color-border-strong: 63 63 70;
+  
+  --color-text-primary: 245 245 247;
+  --color-text-secondary: 200 205 212;
+  --color-text-tertiary: 156 163 175;
+  --color-text-disabled: 110 115 125;
+  
+  --color-accent: 139 92 246;
+  --color-accent-hover: 124 58 237;
+  --color-accent-muted: rgba(139, 92, 246, 0.15);
+  --color-accent-glow: rgba(139, 92, 246, 0.4);
+  
+  --color-success: 0 230 118;
+  --color-danger: 229 72 77;
+  --color-warning: 255 193 7;
+  --color-info: 0 209 255;
+  --color-celebratory: 232 185 61;
+  --color-reaction: 236 72 153;
+  --color-reaction-hover: 244 114 182;
+
+  --shadow-elevation-base: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-elevation-raised: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-elevation-overlay: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-surface-0);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Улучшенная читаемость для кириллицы */
+html {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  -webkit-font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+/* Оптимизация для длинных текстовых блоков */
+p, .prose {
+  max-width: 65ch; /* оптимальная длина строки для чтения */
+  text-wrap: pretty; /* современный CSS для better breaking */
+}
+
+/* Улучшенная читаемость заголовков */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance; /* предотвращает висячие предлоги */
+  font-feature-settings: 'kern' 1;
+}
+
+.font-mono { 
+  font-family: 'JetBrains Mono', monospace; 
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Custom Dark Scrollbar for HUBIGR Platform */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-surface-3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-border-strong); }
+
+:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 1px var(--color-accent), 0 0 12px rgba(99, 102, 241, 0.25) !important;
+}
+
+/* Утилита для отключения глобального фокуса (например, для вложенных инпутов) */
+.no-global-focus:focus-visible {
+  box-shadow: none !important;
+}
+
+/* Убираем outline для textarea в форме отзывов */
+textarea:focus-visible {
+  outline: none !important;
+}
+
+/* Утилита для моноширинного uppercase текста (системные данные) */
+.mono-label {
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* Утилита для overline стиля */
+.overline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.625rem; /* 10px */
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgb(var(--color-text-tertiary));
+  text-decoration: none !important;
+}
+
+/* Улучшенная читаемость и тач-механика для кнопок и интерактивных элементов */
+button, a, input, select, textarea {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Защита от автозума в Safari на iOS: размер шрифта не менее 16px */
+@media (max-width: 767px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Утилиты безопасных зон (Safe Areas) для мобильных устройств с вырезами */
+.safe-area-pb {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 0.5rem);
+}
+.safe-area-pt {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Тач-скролл с поддержкой инерции */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+}
+
+/* Оптимизация для чтения body текста */
+.text-body {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+.text-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+
+
+
+
+/* Range Slider Styles for Jury Evaluations */
+.custom-range-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+.custom-range-slider:focus { 
+  outline: none; 
+}
+
+.custom-range-slider:focus-visible {
+  box-shadow: none !important;
+}
+
+.custom-range-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--color-text-primary) 0%, var(--color-text-primary) var(--range-progress, 50%), var(--color-surface-3) var(--range-progress, 50%), var(--color-surface-3) 100%);
+  border-radius: 8px;
+  border: none;
+}
+
+.custom-range-slider::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--color-text-primary);
+  border: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.custom-range-slider::-webkit-slider-thumb:hover {
+  background: var(--color-accent);
+  transform: scale(1.15);
+}
+
+.custom-range-slider:active::-webkit-slider-thumb {
+  background: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.custom-range-slider:disabled::-webkit-slider-thumb {
+  background: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.custom-range-slider::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: var(--color-surface-3);
+  border-radius: 8px;
+  border: none;
+}
+
+.custom-range-slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--color-text-primary);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.custom-range-slider::-moz-range-thumb:hover {
+  background: var(--color-accent);
+  transform: scale(1.15);
+}
